@@ -1,0 +1,30 @@
+{
+ "tool": "canon-lint",
+ "generated": "2026-09-09T18:04:20.544Z",
+ "ruleset": {
+  "canon-lint.js": {
+   "sha256": "ce172f94626c169824ea9a1209022ed936c58c0500aeab54391c1d41e5966a57",
+   "bytes": 20691
+  },
+  "canon-vocabulary.json": {
+   "sha256": "e18e14c3628c17be1327ac1db30b10b48f097afa9bcccd8e3c0203f36eacb632",
+   "bytes": 3295,
+   "source": "CTO_OS_VISUAL_CANON_MODEL_EXTRACT_V0.1_20260903.md"
+  }
+ },
+ "files": [
+  {
+   "file": "command-center.html",
+   "sha256": "ebdd44f73b269ddda5be3090ea80fe025c99d721a6aad5a7372f64739151af95",
+   "bytes": 21977,
+   "errors": 0,
+   "warns": 0,
+   "findings": [],
+   "distribution": {
+    "total": 6,
+    "settled": 1,
+    "unsettled": 5
+   }
+  }
+ ]
+}

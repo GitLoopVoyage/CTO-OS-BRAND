@@ -11,7 +11,7 @@
  * core is accountable.
  *
  * Usage:
- *   <script src="fractal-pulse.js"></script>
+ *   <script src="fractal-pulse.js"><\/script>
  *   <fractal-pulse state="working" size="120"></fractal-pulse>
  *   <fractal-pulse state="hold" hold-at="inner"></fractal-pulse>
  *   <fractal-pulse state="error" hold-at="middle" ink="#191C20"></fractal-pulse>

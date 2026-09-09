@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>CTO OS · Command Center · Day 4</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="brand/canon/canon-tokens.css">
+  <link rel="stylesheet" href="brand/canon/product-shell.css">
+  <script src="brand/fractal-pulse.js"></script>
+  <style>
+    html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:var(--f-body);font-size:var(--t-body);line-height:1.5;-webkit-font-smoothing:antialiased}
+    a{color:var(--c-cobalt-ui)} a:hover{color:var(--c-ink-100)}
+    .content{padding-bottom:24px}
+  </style>
+</helmet>
+
+<div style="max-width:1320px;margin:0 auto;padding:24px 20px 56px;display:flex;flex-direction:column;gap:18px">
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <span class="lbl">CTO_OS_VISUAL_CANON_V0.1 · Phase B · Artifact 03 · Day 4</span>
+    <h1 style="font-family:var(--f-display);font-size:clamp(26px,3.2vw,38px);font-weight:700;letter-spacing:-.02em;color:var(--c-ink-100);margin:0">Command Center</h1>
+    <p style="margin:0;max-width:72ch;color:var(--c-ink-60);font-size:14.5px;line-height:1.55;text-wrap:pretty">One screen that answers the governing question (Art. 21.3): why is this being considered, who has authority, what exact state is affected, what evidence supports it, what remains prohibited, who verified, and what actually occurred. Five panels, one per promise in Art. 35.2. Every component is drawn from the frozen Day 2 shell; nothing here is new vocabulary.</p>
+  </div>
+
+  <div class="app" data-density="{{ density }}" data-surface="{{ surface }}" data-fixture-root="synthetic" data-fixture="synthetic" data-screen-label="Command Center">
+    <div class="rail">
+      <div class="brand"><span class="wm">CTO <i data-role="wordmark-os">OS</i></span></div>
+      <div class="navsec">
+        <div class="lbl">Command</div>
+        <nav class="nav">
+          <a href="#" aria-current="page"><svg class="gl" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 0h4v1h-4z M6 0h4v1h-4z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v8h-1z M1.5 1.5h7v1h-7z M1.5 7.5h7v1h-7z M1.5 2.5h1v1.5h-1z M1.5 6h1v1.5h-1z M7.5 2.5h1v5h-1z M3 3h4v1h-4z M3 4h1v2h-1z M6 4h1v2h-1z M3 6h1v1h-1z M6 6h1v1h-1z" fill="currentColor"></path><rect x="4" y="4" width="2" height="2" fill="#2563EB" data-role="core"></rect></svg>Command Center</a>
+        </nav>
+      </div>
+      <div class="navsec">
+        <div class="lbl">Beneath CTO OS</div>
+        <nav class="nav">
+          <a href="#">Technical State<span class="ct">2 417</span></a>
+          <a href="#">Decisions<span class="ct">31</span></a>
+          <a href="#">Authority<span class="ct">18</span></a>
+          <a href="#">Assurance<span class="ct">7</span></a>
+          <a href="#">Capabilities<span class="ct">9</span></a>
+        </nav>
+      </div>
+      <div class="navsec">
+        <div class="lbl">Registers</div>
+        <nav class="nav">
+          <a href="#">Decision Ledger</a>
+          <a href="#">Assumption Registry<span class="ct">3</span></a>
+          <a href="#">Change Pipeline<span class="ct">12</span></a>
+        </nav>
+      </div>
+      <div class="railfoot">
+        <div class="lbl" style="margin-bottom:5px">Operating beneath</div>
+        <div class="mono" style="font-size:11px;color:var(--c-ink-60)">Accountable human authority</div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <div class="cmd" style="gap:10px">
+          <x-import component-from-global-scope="fractal-pulse" state="{{ pulseState }}" size="16" ink="{{ pulseInk }}" style="display:block;width:16px;height:16px;flex:0 0 16px" hint-size="16px,16px"></x-import>
+          <span>{{ cmdText }}</span><kbd>⌘K</kbd>
+        </div>
+        <div class="tb-actions">
+          <button class="btn" aria-pressed="{{ compactPressed }}" data-role="interactive-primary" onClick="{{ toggleDensity }}">{{ densityLabel }}</button>
+          <button class="btn" aria-pressed="{{ lightPressed }}" data-role="interactive-primary" onClick="{{ toggleSurface }}">{{ surfaceLabel }}</button>
+        </div>
+      </div>
+
+      <div class="scope">
+        <span>Meridian Logistics</span><span class="sep">/</span>
+        <span>Fulfilment</span><span class="sep">/</span>
+        <span class="cur">svc-routing · change chg-0912</span>
+        <span class="asof">Scope resolved 2026‑09‑03 09:14:22Z</span>
+      </div>
+
+      <div class="content" style="display:flex;flex-direction:column;gap:12px">
+        <div class="halt" data-fixture-ref="demo">
+          <span class="k">Evidence hold</span>
+          <span class="m">Required evidence <span class="mono" data-axis="evidence-presence" data-status="MISSING" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">MISSING</span> for 2 of 5 declared effects of chg-0912. AER decision <span class="mono" style="color:var(--c-amber)" data-axis="aer-decision" data-status="HOLD" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">HOLD</span>. <em>Assurance cannot be asserted from partial supply.</em> This is a hold, not a failure.</span>
+        </div>
+
+        <div class="panelgrid">
+          <div class="panel span-7">
+            <header><h3>Know the technical state</h3><span class="lbl">Art. 35.2 · assertion panel</span></header>
+            <div class="pbody" style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px">
+                <span class="lbl">Scope summary · weakest child</span>
+                <span class="chip" data-axis="epistemic" data-status="UNVERIFIABLE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo"><span class="v">UNVERIFIABLE</span><span class="asof">09:14Z</span></span>
+                <span style="font-size:12px;color:var(--c-ink-45)">Five nodes, one unverifiable. The panel may not claim more than its weakest row (Art. 33.1).</span>
+              </div>
+              <table class="st">
+                <thead><tr><th>Service</th><th>State</th><th>As of</th><th>Authority</th><th>Evidence</th><th>Stage</th></tr></thead>
+                <tbody>
+                  <tr><td class="name">svc-routing</td>
+                    <td><span class="chip" data-axis="epistemic" data-status="KNOWN" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo"><span class="v">KNOWN</span></span></td>
+                    <td class="mono" style="font-size:11px">09:14:22Z</td>
+                    <td><span class="auth" data-axis="authority" data-status="ACTIVE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">ACTIVE</span></td>
+                    <td><span class="ev" data-evidence-id="ev-8801" data-fixture-ref="demo">ev-8801</span></td>
+                    <td><span class="mono" style="font-size:10.5px" data-axis="pipeline-stage" data-status="RUNTIME" data-asof="2026-09-03T09:14:22Z" data-observation="obs-2210" data-fixture-ref="demo">RUNTIME</span></td></tr>
+                  <tr><td class="name">svc-pricing</td>
+                    <td><span class="chip" data-axis="epistemic" data-status="STALE" data-asof="2026-08-20T11:02:00Z" data-fixture-ref="demo"><span class="v">STALE</span></span></td>
+                    <td class="mono" style="font-size:11px">14 d</td>
+                    <td><span class="auth" data-axis="authority" data-status="ACTIVE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">ACTIVE</span></td>
+                    <td><span class="ev" data-evidence-id="ev-8809" data-fixture-ref="demo">ev-8809</span></td>
+                    <td><span class="mono" style="font-size:10.5px" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">IMPLEMENTED</span></td></tr>
+                  <tr><td class="name">svc-inventory</td>
+                    <td><span class="chip" data-axis="epistemic" data-status="CONFLICTED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo"><span class="v">CONFLICTED</span></span></td>
+                    <td class="mono" style="font-size:11px">09:14:22Z</td>
+                    <td><span class="auth" data-axis="authority" data-status="SUSPENDED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">SUSPENDED</span></td>
+                    <td><span class="ev adverse" data-evidence-id="ev-8804" data-fixture-ref="demo">ev-8804</span></td>
+                    <td><span class="mono" style="font-size:10.5px" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">IMPLEMENTED</span></td></tr>
+                  <tr><td class="name">svc-notify</td>
+                    <td><span class="chip" data-axis="epistemic" data-status="UNKNOWN" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo"><span class="v">UNKNOWN</span></span></td>
+                    <td class="mono" style="font-size:11px">09:14:22Z</td>
+                    <td><span class="auth" data-axis="authority" data-status="PENDING_VALIDITY" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">PENDING_VALIDITY</span></td>
+                    <td><span class="ev missing" data-fixture-ref="demo">no ref</span></td>
+                    <td><span class="mono" style="font-size:10.5px;color:var(--c-ink-30)" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">REQUEST</span></td></tr>
+                  <tr><td class="name">worker-reindex</td>
+                    <td><span class="chip" data-axis="epistemic" data-status="UNVERIFIABLE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo"><span class="v">UNVERIFIABLE</span></span></td>
+                    <td class="mono" style="font-size:11px">09:14:22Z</td>
+                    <td><span class="auth" data-axis="authority" data-status="ACTIVE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">ACTIVE</span></td>
+                    <td><span class="ev missing" data-fixture-ref="demo">no ref</span></td>
+                    <td><span class="mono" style="font-size:10.5px" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">IMPLEMENTED</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel span-5">
+            <header><h3>Establish exact authority</h3><span class="lbl">Art. 26.4 · authority is not access</span></header>
+            <div class="pbody rowlist">
+              <div class="specrow"><span class="lbl">Change</span>
+                <span class="auth" data-axis="authority" data-status="ACTIVE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">ACTIVE<span class="ref">auth-4471 · deploy svc-routing · prod</span></span></div>
+              <div class="specrow"><span class="lbl">Window 09‑04</span>
+                <span class="auth" data-axis="authority" data-status="PENDING_VALIDITY" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">PENDING_VALIDITY<span class="ref">auth-4483 · opens 09‑04 08:00Z</span></span></div>
+              <div class="specrow"><span class="lbl">svc-inventory</span>
+                <span class="auth" data-axis="authority" data-status="SUSPENDED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">SUSPENDED<span class="ref">auth-4390 · adverse ev-8804</span></span></div>
+              <div class="specrow" style="border-top:1px solid var(--c-line);margin-top:6px;padding-top:12px"><span class="lbl">Capability</span>
+                <span class="cap" data-capability="cap-118" data-fixture-ref="demo"><b>deploy</b><span class="bound">svc-routing · prod · 1 attempt · expires 17:00Z</span></span></div>
+              <div class="specrow"><span class="lbl"></span>
+                <span class="cap" data-capability="cap-121" data-fixture-ref="demo"><b>read</b><span class="bound">db-orders · replica · no window</span></span></div>
+              <div class="specrow"><span class="lbl"></span>
+                <span style="font-size:12px;color:var(--c-ink-45)">Holding cap-118 is not holding auth-4471. The capability shows its bounds; the authority shows its record. Neither borrows the other's treatment.</span></div>
+            </div>
+          </div>
+
+          <div class="panel span-7">
+            <header><h3>Prove what happened</h3><span class="lbl">chg-0912 · display stages, not a state machine</span></header>
+            <div class="pbody" style="display:flex;flex-direction:column;gap:12px">
+              <span class="stage">
+                <span data-reached="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-09-01T14:02:00Z" data-fixture-ref="demo">REQUEST</span>
+                <span data-reached="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-asof="2026-09-02T08:31:00Z" data-authority-ref="auth-4471" data-fixture-ref="demo">AUTHORIZED</span>
+                <span data-current="true" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T07:55:00Z" data-fixture-ref="demo">IMPLEMENTED</span>
+                <span data-claimed="false" data-axis="pipeline-stage" data-status="ASSURED" data-fixture-ref="demo">ASSURED</span>
+                <span data-claimed="false" data-axis="pipeline-stage" data-status="RUNTIME" data-fixture-ref="demo">RUNTIME</span>
+                <span data-claimed="false" data-axis="pipeline-stage" data-status="CLOSED" data-fixture-ref="demo">CLOSED</span>
+              </span>
+              <div class="rowlist">
+                <div class="specrow"><span class="lbl">Effects 1–3</span>
+                  <span class="chip"><span class="ev" data-evidence-id="ev-8801" data-fixture-ref="demo">ev-8801</span><span class="mono" style="font-size:11px;color:var(--c-ink-60)"><span data-axis="evidence-presence" data-status="SUPPLIED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">SUPPLIED</span> · <span data-axis="evidence-review" data-status="REVIEWED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">REVIEWED</span> · effects 1–3</span></span></div>
+                <div class="specrow"><span class="lbl">svc-inventory</span>
+                  <span class="chip"><span class="ev adverse" data-evidence-id="ev-8804" data-fixture-ref="demo">ev-8804</span><span class="mono" style="font-size:11px;color:var(--c-ink-60)"><span data-axis="evidence-presence" data-status="SUPPLIED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">SUPPLIED</span> · <span data-axis="evidence-review" data-status="REVIEWED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">REVIEWED</span> · <span style="color:var(--c-amber)">adverse</span> · svc-inventory</span></span></div>
+                <div class="specrow"><span class="lbl">Effects 4–5</span>
+                  <span class="chip"><span class="ev missing" data-fixture-ref="demo">no ref</span><span class="mono" style="font-size:11px;color:var(--c-ink-30)"><span data-axis="evidence-presence" data-status="MISSING" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">MISSING</span> · <span data-axis="evidence-review" data-status="UNREVIEWED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">UNREVIEWED</span> · effects 4–5</span></span></div>
+                <div class="specrow"><span class="lbl">Effect set</span>
+                  <span class="mono" style="font-size:11px;color:var(--c-ink-60)"><span data-axis="effect-extent" data-status="PARTIAL" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">PARTIAL</span> · certainty <span data-axis="effect-certainty" data-status="UNKNOWN" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">UNKNOWN</span> — the complete effect set cannot yet be established.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel span-5">
+            <header><h3>Make better decisions</h3><span class="lbl">Decision ledger · register panel</span></header>
+            <div class="pbody rowlist">
+              <div class="specrow" style="grid-template-columns:78px minmax(0,1fr)"><span class="mono" style="font-size:11px;color:var(--c-ink-100)">dec-0301</span>
+                <span style="display:flex;flex-direction:column;gap:5px"><span style="font-size:12.5px;color:var(--c-ink-80)">Deploy chg-0912 to prod behind the routing flag</span><span class="disp" data-axis="disposition" data-status="HOLD" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">HOLD</span></span></div>
+              <div class="specrow" style="grid-template-columns:78px minmax(0,1fr)"><span class="mono" style="font-size:11px;color:var(--c-ink-100)">dec-0298</span>
+                <span style="display:flex;flex-direction:column;gap:5px"><span style="font-size:12.5px;color:var(--c-ink-80)">Suspend auth-4390 on adverse ev-8804</span><span class="disp" data-axis="disposition" data-status="ACCEPT" data-asof="2026-09-03T08:40:00Z" data-fixture-ref="demo">ACCEPT</span></span></div>
+              <div class="specrow" style="grid-template-columns:78px minmax(0,1fr)"><span class="mono" style="font-size:11px;color:var(--c-ink-100)">dec-0295</span>
+                <span style="display:flex;flex-direction:column;gap:5px"><span style="font-size:12.5px;color:var(--c-ink-80)">Narrow cap-118 to one attempt, one window</span><span class="disp" data-axis="disposition" data-status="MODIFY" data-asof="2026-09-02T08:31:00Z" data-fixture-ref="demo">MODIFY</span></span></div>
+              <div class="specrow" style="grid-template-columns:78px minmax(0,1fr)"><span class="lbl">Rule</span>
+                <span style="font-size:12px;color:var(--c-ink-45)">A register asserts existence and order, not truth. Every disposition is a human act; none is inferred from a green pipeline.</span></div>
+            </div>
+          </div>
+
+          <div class="panel span-6">
+            <header><h3>Execute safely</h3><span class="lbl">Attempts · consumed authority is not restored</span></header>
+            <div class="pbody" style="display:flex;flex-direction:column;gap:10px">
+              <div class="specrow" style="grid-template-columns:78px minmax(0,1fr)"><span class="mono" style="font-size:11px;color:var(--c-ink-100)">att-1190</span>
+                <span style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline"><span class="att" data-axis="attempt" data-status="HELD" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">HELD</span><span style="font-size:12px;color:var(--c-ink-60)">deploy svc-routing · waiting on evidence for effects 4–5</span></span></div>
+              <div class="specrow" style="grid-template-columns:78px minmax(0,1fr)"><span class="mono" style="font-size:11px;color:var(--c-ink-100)">att-1187</span>
+                <span style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline"><span class="att" data-terminal="true" data-axis="attempt" data-status="BLOCKED" data-asof="2026-09-03T07:58:00Z" data-fixture-ref="demo">BLOCKED</span><span style="font-size:12px;color:var(--c-ink-60)">boundary <span class="mono" data-axis="boundary" data-status="MULTIPLE_BOUNDARIES_HOLD" data-fixture-ref="demo">MULTIPLE_BOUNDARIES_HOLD</span> · svc-inventory reached</span></span></div>
+              <div class="specrow" style="grid-template-columns:78px minmax(0,1fr)"><span class="mono" style="font-size:11px;color:var(--c-ink-100)">att-1181</span>
+                <span style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline"><span class="att" data-terminal="true" data-axis="attempt" data-status="SUCCEEDED" data-asof="2026-09-02T16:12:00Z" data-fixture-ref="demo">SUCCEEDED</span><span style="font-size:12px;color:var(--c-ink-60)">read db-orders replica · cap-121</span></span></div>
+              <div class="halt block" data-fixture-ref="demo">
+                <span class="k">Attempt blocked</span>
+                <span class="m">att-1187 <span class="att" data-axis="attempt" data-status="BLOCKED" data-terminal="true" data-asof="2026-09-03T07:58:00Z" data-fixture-ref="demo">BLOCKED</span> at boundary evaluation. <em>The consumed attempt on cap-118 is not restored.</em> A new attempt needs a new authority act.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel span-6">
+            <header><h3>Not permitted to view</h3><span class="lbl">Meridian Logistics / Finance</span></header>
+            <div class="pbody"><div class="empty">
+              <span class="et">OUT OF SCOPE</span>
+              <span class="ed">Your authority does not extend to the Finance tenant. Its records exist; you are not permitted to read them. This is a different fact from their being absent, and a different fact again from their being unknowable.</span>
+              <span class="auth" data-axis="authority" data-status="ACTIVE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">ACTIVE<span class="ref">auth-4471 · scoped to Fulfilment</span></span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="border:1px solid var(--c-line);border-left:2px solid var(--c-cobalt);border-radius:var(--radius);padding:14px 16px;background:var(--c-surface);font-size:13px;color:var(--c-ink-60)">
+    <b style="color:var(--c-ink-100);font-weight:600">Reference tenant is synthetic.</b> Meridian Logistics, its services, authorities, evidence records, decisions and attempts are invented. The screen declares <span class="mono">data-fixture-root="synthetic"</span>; every fixture node is inside it. Composition sources: rail Art. 21.2, panels Art. 35.2, governing question Art. 21.3, nesting rule Art. 33.1, vocabularies Model Extract v0.1. Components: frozen Day 2 <span class="mono">product-shell.html</span> (1e54c7fa…) and <span class="mono">canon-tokens.css</span> (3d944a63…); working indicator from the site's digested <span class="mono">fractal-pulse.js</span>.
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;comfortable&quot;,&quot;compact&quot;],&quot;default&quot;:&quot;comfortable&quot;,&quot;tsType&quot;:&quot;'comfortable'|'compact'&quot;,&quot;section&quot;:&quot;Shell&quot;},&quot;surface&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark'|'light'&quot;,&quot;section&quot;:&quot;Shell&quot;},&quot;pulseState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;idle&quot;,&quot;working&quot;,&quot;complete&quot;],&quot;default&quot;:&quot;working&quot;,&quot;tsType&quot;:&quot;'idle'|'working'|'complete'&quot;,&quot;section&quot;:&quot;Command bar&quot;}}">
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const density = this.state.density ?? this.props.density ?? 'comfortable';
+    const surface = this.state.surface ?? this.props.surface ?? 'dark';
+    const light = surface === 'light';
+    const pulseState = this.props.pulseState ?? 'working';
+    return {
+      density, surface: light ? 'light' : undefined,
+      compactPressed: density === 'compact' ? 'true' : 'false', densityLabel: density === 'compact' ? 'Comfortable' : 'Compact',
+      lightPressed: light ? 'true' : 'false', surfaceLabel: light ? 'Dark' : 'Light',
+      toggleDensity: () => this.setState({ density: density === 'compact' ? 'comfortable' : 'compact' }),
+      toggleSurface: () => this.setState({ surface: light ? 'dark' : 'light' }),
+      pulseState, pulseInk: light ? '#191C20' : '#EDF0F3',
+      cmdText: pulseState === 'working' ? 'Reconstructing technical state for svc-routing…' : 'Ask, explain, alert, recommend…'
+    };
+  }
+}
+</script>
+</body>
+</html>
