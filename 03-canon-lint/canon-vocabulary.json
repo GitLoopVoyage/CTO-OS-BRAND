@@ -1,0 +1,161 @@
+{
+  "_source": "CTO_OS_VISUAL_CANON_MODEL_EXTRACT_V0.1_20260903.md",
+  "_note": "Vocabularies transcribed verbatim from the model extract. The linter reads this file; it does not hardcode state names. When the extract changes, change this file, not the linter.",
+  "axes": [
+    "epistemic",
+    "authority",
+    "attempt",
+    "aer-decision",
+    "boundary",
+    "disposition",
+    "evidence-presence",
+    "evidence-review",
+    "effect-extent",
+    "effect-certainty",
+    "pipeline-stage"
+  ],
+  "vocabulary": {
+    "epistemic": [
+      "KNOWN",
+      "SUPPORTED",
+      "PARTIALLY_SUPPORTED",
+      "INFERRED",
+      "CONFLICTED",
+      "STALE",
+      "UNKNOWN",
+      "UNVERIFIABLE"
+    ],
+    "authority": [
+      "PENDING_VALIDITY",
+      "ACTIVE",
+      "SUSPENDED",
+      "REVOKED",
+      "EXPIRED",
+      "SUPERSEDED"
+    ],
+    "attempt": [
+      "INITIATED",
+      "HELD",
+      "BEGUN",
+      "BLOCKED",
+      "ABORT_REQUESTED",
+      "RECONCILIATION_REQUIRED",
+      "SUCCEEDED",
+      "FAILED",
+      "ABORTED"
+    ],
+    "aer-decision": [
+      "ALLOW",
+      "REJECT",
+      "HOLD"
+    ],
+    "boundary": [
+      "SINGLE_BOUNDARY",
+      "MULTIPLE_BOUNDARIES_HOLD",
+      "NOT_PROVIDED_FAIL_CLOSED"
+    ],
+    "disposition": [
+      "ACCEPT",
+      "MODIFY",
+      "HOLD",
+      "REJECT"
+    ],
+    "evidence-presence": [
+      "PENDING",
+      "MISSING",
+      "SUPPLIED"
+    ],
+    "evidence-review": [
+      "UNREVIEWED",
+      "REVIEWED"
+    ],
+    "effect-extent": [
+      "NONE",
+      "PARTIAL",
+      "COMPLETE"
+    ],
+    "effect-certainty": [
+      "CONFIRMED",
+      "UNKNOWN"
+    ],
+    "pipeline-stage": [
+      "REQUEST",
+      "AUTHORIZED",
+      "IMPLEMENTED",
+      "ASSURED",
+      "RUNTIME",
+      "CLOSED"
+    ]
+  },
+  "attemptTerminal": [
+    "SUCCEEDED",
+    "FAILED",
+    "ABORTED",
+    "BLOCKED"
+  ],
+  "nonErrorEpistemic": [
+    "UNKNOWN",
+    "UNVERIFIABLE",
+    "STALE",
+    "PARTIALLY_SUPPORTED",
+    "INFERRED"
+  ],
+  "assuranceClaims": [
+    "ASSURED",
+    "VERIFIED",
+    "PROVEN"
+  ],
+  "forbiddenAbsolutes": [
+    "all systems operational",
+    "fully verified",
+    "fully compliant",
+    "is secure",
+    "guaranteed secure",
+    "provably safe",
+    "100% verified",
+    "everything is healthy",
+    "no issues",
+    "all clear"
+  ],
+  "timeSensitiveAxes": [
+    "authority",
+    "attempt",
+    "effect-extent",
+    "effect-certainty",
+    "evidence-presence",
+    "evidence-review",
+    "pipeline-stage"
+  ],
+  "cobaltRoles": [
+    "core",
+    "wordmark-os",
+    "interactive-primary",
+    "interactive-focus",
+    "specimen"
+  ],
+  "colors": {
+    "cobalt": "#2563EB",
+    "signal": "#E5484D",
+    "amber": "#D8A233",
+    "amberLight": "#8A6413",
+    "amberDark": "#E0AE4A"
+  },
+  "_roleNote": "specimen = a swatch or sample whose subject IS the colour. Never a status indicator.",
+  "attentionStates": [
+    "CONFLICTED",
+    "STALE",
+    "HOLD",
+    "HELD",
+    "BLOCKED",
+    "FAILED",
+    "REJECT",
+    "ABORT_REQUESTED",
+    "RECONCILIATION_REQUIRED",
+    "SUSPENDED",
+    "REVOKED",
+    "EXPIRED",
+    "MULTIPLE_BOUNDARIES_HOLD",
+    "NOT_PROVIDED_FAIL_CLOSED"
+  ],
+  "_attentionNote": "Amber and signal may colour ONLY these states. Any other state rendered in an attention hue is an axis leak (review finding: ASSURED in amber)."
+}

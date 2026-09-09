@@ -1,0 +1,293 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2800" height="1700" viewBox="0 0 2800 1700">
+<style>
+text{font-family:Inter,'Helvetica Neue',Arial,sans-serif;fill:#98A1AC}
+.h1{font-size:40px;font-weight:700;fill:#F2F5F8;letter-spacing:.4px}
+.h2{font-size:17px;font-weight:500;fill:#98A1AC;letter-spacing:.9px}
+.plabel{font-size:17px;font-weight:600;fill:#DCE2E9;letter-spacing:1.1px}
+.pcap{font-size:12px;font-weight:500;fill:#6E7681;letter-spacing:1.2px}
+.lbl{font-size:14px;font-weight:500;fill:#98A1AC}
+.sm{font-size:12px;font-weight:500;fill:#6E7681}
+.dim{font-size:11.5px;font-weight:600;fill:#6E7681;letter-spacing:.6px}
+.bold{font-size:14px;font-weight:700;fill:#E6EBF1}
+.mono{font-family:'DejaVu Sans Mono',monospace;font-size:12px;fill:#98A1AC}
+.ok{font-size:13px;font-weight:700;fill:#3FB68B;letter-spacing:1px}
+</style>
+<defs>
+<g id="frames"><path d="M0 0h4v1h-4z M6 0h4v1h-4z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v8h-1z M1.5 1.5h7v1h-7z M1.5 7.5h7v1h-7z M1.5 2.5h1v1.5h-1z M1.5 6h1v1.5h-1z M7.5 2.5h1v5h-1z M3 3h4v1h-4z M3 4h1v2h-1z M6 4h1v2h-1z M3 6h1v1h-1z M6 6h1v1h-1z"/></g>
+<g id="core"><path d="M4 4h2v2h-2z"/></g>
+<g id="wm-cto"><path d="M3.582857142857143 0.06857142857142857C4.517142857142858 0.06857142857142857 5.322857142857143 -0.2571428571428572 5.871428571428572 -0.8742857142857143L5.314285714285715 -1.4142857142857144C4.851428571428571 -0.9257142857142857 4.285714285714286 -0.6942857142857143 3.625714285714286 -0.6942857142857143C2.2714285714285714 -0.6942857142857143 1.2685714285714287 -1.6714285714285715 1.2685714285714287 -3.0C1.2685714285714287 -4.328571428571429 2.2714285714285714 -5.305714285714286 3.625714285714286 -5.305714285714286C4.285714285714286 -5.305714285714286 4.851428571428571 -5.082857142857143 5.314285714285715 -4.594285714285714L5.871428571428572 -5.134285714285714C5.322857142857143 -5.751428571428572 4.517142857142858 -6.0685714285714285 3.5914285714285716 -6.0685714285714285C1.7657142857142858 -6.0685714285714285 0.4114285714285715 -4.774285714285715 0.4114285714285715 -3.0C0.4114285714285715 -1.2257142857142858 1.7657142857142858 0.06857142857142857 3.582857142857143 0.06857142857142857Z M9.30857142857143 0.0V-5.2542857142857144H11.365714285714287V-6.0H6.402857142857144V-5.2542857142857144H8.46V0.0Z M15.180000000000001 0.06857142857142857C17.005714285714287 0.06857142857142857 18.360000000000003 -1.2342857142857144 18.360000000000003 -3.0C18.360000000000003 -4.765714285714286 17.005714285714287 -6.0685714285714285 15.180000000000001 -6.0685714285714285C13.337142857142858 -6.0685714285714285 11.982857142857144 -4.757142857142857 11.982857142857144 -3.0C11.982857142857144 -1.2428571428571429 13.337142857142858 0.06857142857142857 15.180000000000001 0.06857142857142857ZM15.180000000000001 -0.6942857142857143C13.834285714285716 -0.6942857142857143 12.840000000000002 -1.6714285714285715 12.840000000000002 -3.0C12.840000000000002 -4.328571428571429 13.834285714285716 -5.305714285714286 15.180000000000001 -5.305714285714286C16.50857142857143 -5.305714285714286 17.502857142857145 -4.328571428571429 17.502857142857145 -3.0C17.502857142857145 -1.6714285714285715 16.50857142857143 -0.6942857142857143 15.180000000000001 -0.6942857142857143Z"/></g>
+<g id="wm-os"><path d="M25.380000000000003 0.06857142857142857C27.205714285714286 0.06857142857142857 28.560000000000002 -1.2342857142857144 28.560000000000002 -3.0C28.560000000000002 -4.765714285714286 27.205714285714286 -6.0685714285714285 25.380000000000003 -6.0685714285714285C23.537142857142857 -6.0685714285714285 22.182857142857145 -4.757142857142857 22.182857142857145 -3.0C22.182857142857145 -1.2428571428571429 23.537142857142857 0.06857142857142857 25.380000000000003 0.06857142857142857ZM25.380000000000003 -0.6942857142857143C24.034285714285716 -0.6942857142857143 23.04 -1.6714285714285715 23.04 -3.0C23.04 -4.328571428571429 24.034285714285716 -5.305714285714286 25.380000000000003 -5.305714285714286C26.70857142857143 -5.305714285714286 27.702857142857145 -4.328571428571429 27.702857142857145 -3.0C27.702857142857145 -1.6714285714285715 26.70857142857143 -0.6942857142857143 25.380000000000003 -0.6942857142857143Z M31.791428571428575 0.06857142857142857C33.37714285714286 0.06857142857142857 34.114285714285714 -0.7200000000000001 34.114285714285714 -1.6371428571428572C34.114285714285714 -3.8400000000000003 30.480000000000004 -2.922857142857143 30.480000000000004 -4.388571428571429C30.480000000000004 -4.911428571428572 30.91714285714286 -5.34 31.93714285714286 -5.34C32.46857142857143 -5.34 33.06 -5.185714285714286 33.582857142857144 -4.851428571428571L33.86571428571429 -5.537142857142857C33.36857142857143 -5.88 32.64 -6.0685714285714285 31.93714285714286 -6.0685714285714285C30.360000000000003 -6.0685714285714285 29.640000000000004 -5.28 29.640000000000004 -4.354285714285714C29.640000000000004 -2.125714285714286 33.27428571428572 -3.0514285714285716 33.27428571428572 -1.5857142857142859C33.27428571428572 -1.062857142857143 32.82857142857143 -0.66 31.791428571428575 -0.66C31.020000000000003 -0.66 30.25714285714286 -0.9514285714285715 29.811428571428575 -1.3542857142857143L29.494285714285716 -0.6857142857142857C29.974285714285717 -0.24000000000000002 30.87428571428572 0.06857142857142857 31.791428571428575 0.06857142857142857Z"/></g>
+<linearGradient id="cover" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#33383E"/><stop offset="0.5" stop-color="#282D33"/><stop offset="1" stop-color="#1C2025"/></linearGradient>
+<linearGradient id="spine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#14171A"/><stop offset="1" stop-color="#2E343A"/></linearGradient>
+</defs>
+<rect width="2800" height="1700" fill="#141619"/>
+<text class="h1" x="48" y="74" text-anchor="start" >CTO OS FRACTAL CORE MARK &#8212; VECTOR MASTER v2</text>
+<text class="h2" x="48" y="104" text-anchor="start" >VECTOR_CORRECTION_1 &#183; MODEL B &#183; THREE DISTINCT OPEN FRAMES, ONE GATE EACH &#183; CONCEPT UNCHANGED</text>
+<line x1="48" y1="126" x2="2752" y2="126" stroke="#31373E"/>
+<defs><marker id="ar" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 4 L7 1.6 L7 6.4 Z" fill="#6E7681"/></marker><marker id="arw" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 4 L7 1.6 L7 6.4 Z" fill="#98A1AC"/></marker></defs>
+<rect x="48" y="150" width="664" height="560" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="70" y="184">A.  CANONICAL MASTER SYMBOL</text>
+<text class="pcap" x="70" y="694">VECTOR MASTER v2 &#183; THREE OPEN FRAMES + ACCOUNTABLE CORE</text>
+<g transform="translate(202.0000 268.0000) scale(35.600000)" ><use href="#frames" fill="#EDF0F3"/><use href="#core" fill="#2563EB"/></g>
+<text class="sm" x="380" y="658" text-anchor="middle" >10X &#215; 10X  &#183;  3 FRAMES  &#183;  STROKE X  &#183;  GAP X/2  &#183;  GATE 2X  &#183;  CORE 2X</text>
+<rect x="728" y="150" width="664" height="560" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="750" y="184">B.  EXACT MODULAR CONSTRUCTION GRID</text>
+<text class="pcap" x="750" y="694">EVERY MEASUREMENT RECONSTRUCTS THE VECTOR MASTER</text>
+<line x1="878" y1="306" x2="878" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="306" x2="1148" y2="306" stroke="#414A54" stroke-width="0.9"/>
+<line x1="891.5" y1="306" x2="891.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="319.5" x2="1148" y2="319.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="905" y1="306" x2="905" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="333" x2="1148" y2="333" stroke="#414A54" stroke-width="0.9"/>
+<line x1="918.5" y1="306" x2="918.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="346.5" x2="1148" y2="346.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="932" y1="306" x2="932" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="360" x2="1148" y2="360" stroke="#414A54" stroke-width="0.9"/>
+<line x1="945.5" y1="306" x2="945.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="373.5" x2="1148" y2="373.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="959" y1="306" x2="959" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="387" x2="1148" y2="387" stroke="#414A54" stroke-width="0.9"/>
+<line x1="972.5" y1="306" x2="972.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="400.5" x2="1148" y2="400.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="986" y1="306" x2="986" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="414" x2="1148" y2="414" stroke="#414A54" stroke-width="0.9"/>
+<line x1="999.5" y1="306" x2="999.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="427.5" x2="1148" y2="427.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="1013" y1="306" x2="1013" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="441" x2="1148" y2="441" stroke="#414A54" stroke-width="0.9"/>
+<line x1="1026.5" y1="306" x2="1026.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="454.5" x2="1148" y2="454.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="1040" y1="306" x2="1040" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="468" x2="1148" y2="468" stroke="#414A54" stroke-width="0.9"/>
+<line x1="1053.5" y1="306" x2="1053.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="481.5" x2="1148" y2="481.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="1067" y1="306" x2="1067" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="495" x2="1148" y2="495" stroke="#414A54" stroke-width="0.9"/>
+<line x1="1080.5" y1="306" x2="1080.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="508.5" x2="1148" y2="508.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="1094" y1="306" x2="1094" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="522" x2="1148" y2="522" stroke="#414A54" stroke-width="0.9"/>
+<line x1="1107.5" y1="306" x2="1107.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="535.5" x2="1148" y2="535.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="1121" y1="306" x2="1121" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="549" x2="1148" y2="549" stroke="#414A54" stroke-width="0.9"/>
+<line x1="1134.5" y1="306" x2="1134.5" y2="576" stroke="#333A43" stroke-width="0.55"/>
+<line x1="878" y1="562.5" x2="1148" y2="562.5" stroke="#333A43" stroke-width="0.55"/>
+<line x1="1148" y1="306" x2="1148" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<line x1="878" y1="576" x2="1148" y2="576" stroke="#414A54" stroke-width="0.9"/>
+<rect x="878" y="306" width="270" height="270" fill="none" stroke="#4F5964"/>
+<g transform="translate(878.0000 306.0000) scale(27.000000)" ><use href="#frames" fill="#8A93A0"/><use href="#core" fill="#2563EB"/></g>
+<line x1="878" y1="606" x2="1148" y2="606" stroke="#6E7681" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="dim" x="1013" y="623" text-anchor="middle" >MASTER = 10X &#215; 10X</text>
+<line x1="986" y1="288" x2="1040" y2="288" stroke="#6E7681" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="dim" x="975.2" y="292" text-anchor="end" >GATE WIDTH = 2X (ALL THREE)</text>
+<line x1="1164" y1="306" x2="1164" y2="333" stroke="#6E7681" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<line x1="1148" y1="306" x2="1164" y2="306" stroke="#3E4650" stroke-width="0.8"/>
+<line x1="1148" y1="333" x2="1164" y2="333" stroke="#3E4650" stroke-width="0.8"/>
+<text class="dim" x="1174" y="323.5" text-anchor="start" >FRAME STROKE = X</text>
+<line x1="1164" y1="333" x2="1164" y2="346.5" stroke="#6E7681" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<line x1="1148" y1="333" x2="1164" y2="333" stroke="#3E4650" stroke-width="0.8"/>
+<line x1="1148" y1="346.5" x2="1164" y2="346.5" stroke="#3E4650" stroke-width="0.8"/>
+<text class="dim" x="1174" y="343.75" text-anchor="start" >INTER-FRAME GAP = X/2</text>
+<line x1="1164" y1="414" x2="1164" y2="468" stroke="#6E7681" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<line x1="1148" y1="414" x2="1164" y2="414" stroke="#3E4650" stroke-width="0.8"/>
+<line x1="1148" y1="468" x2="1164" y2="468" stroke="#3E4650" stroke-width="0.8"/>
+<text class="dim" x="1174" y="445" text-anchor="start" >CENTRAL CORE = 2X &#215; 2X</text>
+<path d="M1013 319.5 L1013 272" stroke="#98A1AC" stroke-width="1" fill="none"/>
+<circle cx="1013" cy="319.5" r="2.6" fill="#98A1AC"/>
+<text class="dim" x="1013" y="264" text-anchor="middle" fill="#98A1AC">f1 OUTER GATE &#183; TOP</text>
+<path d="M932 441 L848 441" stroke="#98A1AC" stroke-width="1" fill="none"/>
+<circle cx="932" cy="441" r="2.6" fill="#98A1AC"/>
+<text class="dim" x="842" y="436" text-anchor="end" fill="#98A1AC">f2 MIDDLE GATE</text>
+<text class="dim" x="842" y="450" text-anchor="end" fill="#98A1AC">&#183; LEFT</text>
+<path d="M1013 481.5 L1013 584" stroke="#98A1AC" stroke-width="1" fill="none"/>
+<circle cx="1013" cy="481.5" r="2.6" fill="#98A1AC"/>
+<text class="dim" x="1013" y="597" text-anchor="middle" fill="#98A1AC">f3 INNER GATE &#183; BOTTOM</text>
+<text class="bold" x="1174" y="505.8" text-anchor="start" >FRAME BOUNDS</text>
+<text class="sm" x="1174" y="525.8" text-anchor="start" >f1 OUTER</text>
+<text class="sm" x="1350" y="525.8" text-anchor="end" >0.0 &#8211; 10.0 X</text>
+<text class="sm" x="1174" y="542.8" text-anchor="start" >f2 MIDDLE</text>
+<text class="sm" x="1350" y="542.8" text-anchor="end" >1.5 &#8211; 8.5 X</text>
+<text class="sm" x="1174" y="559.8" text-anchor="start" >f3 INNER</text>
+<text class="sm" x="1350" y="559.8" text-anchor="end" >3.0 &#8211; 7.0 X</text>
+<text class="sm" x="1174" y="576.8" text-anchor="start" >CORE</text>
+<text class="sm" x="1350" y="576.8" text-anchor="end" >4.0 &#8211; 6.0 X</text>
+<rect x="1408" y="150" width="664" height="272" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="1430" y="184">C.  PRIMARY HORIZONTAL LOCKUP</text>
+<text class="pcap" x="1430" y="406">FULL COLOUR &#183; NEUTRAL FRAMES + COBALT CORE + COBALT OS</text>
+<g transform="translate(1490.0000 246.0000) scale(10.533919)" ><use href="#frames" fill="#EDF0F3"/><use href="#core" fill="#2563EB"/></g><g transform="translate(1626.9410 330.2714) scale(10.533919)"><use href="#wm-cto" fill="#EDF0F3"/><use href="#wm-os" fill="#2563EB"/></g>
+<rect x="2088" y="150" width="664" height="272" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="2110" y="184">D.  VERTICAL LOCKUP</text>
+<text class="pcap" x="2110" y="406">FULL COLOUR &#183; SAME MASTER, SAME WORDMARK</text>
+<g transform="translate(2379.0000 218.0000) scale(8.200000)" ><use href="#frames" fill="#EDF0F3"/><use href="#core" fill="#2563EB"/></g><g transform="translate(2278.6906 373.8000) scale(8.200000)"><use href="#wm-cto" fill="#EDF0F3"/><use href="#wm-os" fill="#2563EB"/></g>
+<rect x="1408" y="438" width="664" height="272" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="1430" y="472">E.  LIGHT VERSION</text>
+<rect x="1409" y="490" width="662" height="190" fill="#F4F2EE"/>
+<g transform="translate(1505.0000 542.0000) scale(9.901884)" ><use href="#frames" fill="#191C20"/><use href="#core" fill="#2563EB"/></g><g transform="translate(1633.7245 621.2151) scale(9.901884)"><use href="#wm-cto" fill="#191C20"/><use href="#wm-os" fill="#2563EB"/></g>
+<text class="pcap" x="1430" y="696" text-anchor="start" >HORIZONTAL LOCKUP ON LIGHT &#183; DARK NEUTRAL FRAMES + COBALT CORE</text>
+<rect x="2088" y="438" width="664" height="272" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="2110" y="472">F.  DARK VERSION</text>
+<rect x="2089" y="490" width="662" height="190" fill="#0C0E10"/>
+<g transform="translate(2185.0000 542.0000) scale(9.901884)" ><use href="#frames" fill="#EDF0F3"/><use href="#core" fill="#2563EB"/></g><g transform="translate(2313.7245 621.2151) scale(9.901884)"><use href="#wm-cto" fill="#EDF0F3"/><use href="#wm-os" fill="#2563EB"/></g>
+<text class="pcap" x="2110" y="696" text-anchor="start" >HORIZONTAL LOCKUP ON DARK &#183; ICE FRAMES + COBALT CORE</text>
+<rect x="48" y="726" width="664" height="380" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="70" y="760">G.  POSITIVE MONOCHROME</text>
+<rect x="49" y="778" width="662" height="298" fill="#FFFFFF"/>
+<g transform="translate(145.0000 876.0000) scale(9.901884)" ><use href="#frames" fill="#191C20"/><use href="#core" fill="#191C20"/></g><g transform="translate(273.7245 955.2151) scale(9.901884)"><use href="#wm-cto" fill="#191C20"/><use href="#wm-os" fill="#191C20"/></g>
+<text class="pcap" x="70" y="1092" text-anchor="start" >ONE INK &#183; 100% K &#183; NO COBALT, NO GREYSCALE STEPS</text>
+<rect x="728" y="726" width="664" height="380" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="750" y="760">H.  REVERSED MONOCHROME</text>
+<rect x="729" y="778" width="662" height="298" fill="#0C0E10"/>
+<g transform="translate(825.0000 876.0000) scale(9.901884)" ><use href="#frames" fill="#EDF0F3"/><use href="#core" fill="#EDF0F3"/></g><g transform="translate(953.7245 955.2151) scale(9.901884)"><use href="#wm-cto" fill="#EDF0F3"/><use href="#wm-os" fill="#EDF0F3"/></g>
+<text class="pcap" x="750" y="1092" text-anchor="start" >ONE INK &#183; KNOCK-OUT &#183; IDENTICAL PATHS TO PANEL G</text>
+<rect x="1408" y="726" width="664" height="380" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="1430" y="760">J.  CLEAR-SPACE RULE &amp; MINIMUM SIZE</text>
+<rect x="1513.55" y="820.4" width="452.898" height="123.2" fill="#101317"/>
+<rect x="1513.55" y="820.4" width="452.898" height="123.2" fill="none" stroke="#5A636D" stroke-dasharray="5 4"/>
+<rect x="1531.15" y="838" width="417.698" height="88" fill="none" stroke="#454E58" stroke-dasharray="2 3"/>
+<g transform="translate(1531.1509 838.0000) scale(8.800000)" ><use href="#frames" fill="#EDF0F3"/><use href="#core" fill="#2563EB"/></g><g transform="translate(1645.5509 908.4000) scale(8.800000)"><use href="#wm-cto" fill="#EDF0F3"/><use href="#wm-os" fill="#2563EB"/></g>
+<line x1="1513.55" y1="806.4" x2="1531.15" y2="806.4" stroke="#6E7681" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="dim" x="1522.35" y="800.4" text-anchor="middle" >2X</text>
+<line x1="1499.55" y1="820.4" x2="1499.55" y2="838" stroke="#6E7681" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="dim" x="1493.55" y="833.2" text-anchor="end" >2X</text>
+<text class="bold" x="1432" y="976" text-anchor="start" >CLEAR SPACE</text>
+<text class="sm" x="1432" y="998" text-anchor="start" >2X on all four sides, measured from the lockup</text>
+<text class="sm" x="1432" y="1018" text-anchor="start" >bounding box. No type, rule or image may enter it.</text>
+<text class="bold" x="1768" y="976" text-anchor="start" >MINIMUM SIZE</text>
+<text class="sm" x="1768" y="998" text-anchor="start" >Digital &#8212; 16 px symbol height</text>
+<text class="sm" x="1768" y="1018" text-anchor="start" >Print &#8212; 0.75 in (19 mm) lockup width</text>
+<text class="sm" x="1768" y="1038" text-anchor="start" >Below 32 px use panel I micro-masters</text>
+<rect x="2088" y="726" width="664" height="380" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="2110" y="760">O.  INCORRECT USE</text>
+<rect x="2114" y="790" width="192" height="136" rx="2" fill="#15181C" stroke="#2B3138"/>
+<g transform="translate(2210 838) rotate(45)"><g transform="translate(-26.0000 -26.0000) scale(5.200000)" ><use href="#frames" fill="#8A93A0"/><use href="#core" fill="#2563EB"/></g></g>
+<g stroke="#E5484D" stroke-width="2" stroke-linecap="round" opacity="0.95"><circle cx="2288" cy="808" r="9" fill="none"/><path d="M2282 802 L2294 814"/></g>
+<text class="dim" x="2210" y="886" text-anchor="middle" fill="#E5484D">ROTATION</text>
+<text class="sm" x="2210" y="904" text-anchor="middle" font-size="10.5">Do not rotate the symbol.</text>
+<rect x="2320" y="790" width="192" height="136" rx="2" fill="#15181C" stroke="#2B3138"/>
+<g transform="translate(2390 812) scale(5.2)"><path d="M0 0h10v1h-10z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v3h-1z M9 6h1v3h-1z M2 2h2v1h-2z M6 2h2v1h-2z M2 3h1v4h-1z M7 3h1v4h-1z M2 7h6v1h-6z" fill="#8A93A0"/><path d="M4 4h2v2h-2z" fill="#2563EB"/></g>
+<g stroke="#E5484D" stroke-width="2" stroke-linecap="round" opacity="0.95"><circle cx="2494" cy="808" r="9" fill="none"/><path d="M2488 802 L2500 814"/></g>
+<text class="dim" x="2416" y="886" text-anchor="middle" fill="#E5484D">GATE CHANGE</text>
+<text class="sm" x="2416" y="904" text-anchor="middle" font-size="10.5">Do not move or re-order gates.</text>
+<rect x="2526" y="790" width="192" height="136" rx="2" fill="#15181C" stroke="#2B3138"/>
+<g transform="translate(2596 812) scale(5.2)"><path d="M0 0h4v1h-4z M6 0h4v1h-4z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v8h-1z M1.5 1.5h7v1h-7z M1.5 7.5h7v1h-7z M1.5 2.5h1v1.5h-1z M1.5 6h1v1.5h-1z M7.5 2.5h1v5h-1z M2.6 2.6h4.8v0.4h-4.8z M2.6 7h4.8v0.4h-4.8z M2.6 2.6h0.4v4.8h-0.4z M7 2.6h0.4v4.8h-0.4z M3 3h4v1h-4z M3 4h1v2h-1z M6 4h1v2h-1z M3 6h1v1h-1z M6 6h1v1h-1z" fill="#8A93A0"/><path d="M4 4h2v2h-2z" fill="#2563EB"/></g>
+<g stroke="#E5484D" stroke-width="2" stroke-linecap="round" opacity="0.95"><circle cx="2700" cy="808" r="9" fill="none"/><path d="M2694 802 L2706 814"/></g>
+<text class="dim" x="2622" y="886" text-anchor="middle" fill="#E5484D">ADDED LAYER</text>
+<text class="sm" x="2622" y="904" text-anchor="middle" font-size="10.5">Do not add recursion layers.</text>
+<rect x="2114" y="942" width="192" height="136" rx="2" fill="#15181C" stroke="#2B3138"/>
+<g transform="translate(2184.0000 964.0000) scale(5.200000)" ><use href="#frames" fill="#2563EB"/><use href="#core" fill="#EDF0F3"/></g>
+<g stroke="#E5484D" stroke-width="2" stroke-linecap="round" opacity="0.95"><circle cx="2288" cy="960" r="9" fill="none"/><path d="M2282 954 L2294 966"/></g>
+<text class="dim" x="2210" y="1038" text-anchor="middle" fill="#E5484D">COBALT FRAMES</text>
+<text class="sm" x="2210" y="1056" text-anchor="middle" font-size="10.5">Cobalt may never fill a frame.</text>
+<rect x="2320" y="942" width="192" height="136" rx="2" fill="#15181C" stroke="#2B3138"/>
+<g transform="translate(2390.0000 964.0000) scale(5.200000)" ><use href="#frames" fill="#8A93A0"/><use href="#core" fill="#00B4FF"/></g>
+<g stroke="#E5484D" stroke-width="2" stroke-linecap="round" opacity="0.95"><circle cx="2494" cy="960" r="9" fill="none"/><path d="M2488 954 L2500 966"/></g>
+<text class="dim" x="2416" y="1038" text-anchor="middle" fill="#E5484D">ALTERNATE BLUE</text>
+<text class="sm" x="2416" y="1056" text-anchor="middle" font-size="10.5">No blue other than #2563EB.</text>
+<rect x="2526" y="942" width="192" height="136" rx="2" fill="#15181C" stroke="#2B3138"/>
+<g transform="translate(2559.53 997.5) scale(1.45,1)"><g transform="translate(0.0000 0.0000) scale(2.500000)"><use href="#wm-cto" fill="#8A93A0"/><use href="#wm-os" fill="#2563EB"/></g></g>
+<g stroke="#E5484D" stroke-width="2" stroke-linecap="round" opacity="0.95"><circle cx="2700" cy="960" r="9" fill="none"/><path d="M2694 954 L2706 966"/></g>
+<text class="dim" x="2622" y="1038" text-anchor="middle" fill="#E5484D">WORDMARK EDIT</text>
+<text class="sm" x="2622" y="1056" text-anchor="middle" font-size="10.5">Do not stretch or re-space.</text>
+<rect x="48" y="1122" width="664" height="400" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="70" y="1156">I.  MICRO-MARK MASTERS &#8212; 16 / 24 / 32 px</text>
+<rect x="82" y="1208" width="52" height="52" fill="#101317" stroke="#2B3138"/>
+<g transform="translate(100 1226) scale(2)"><path d="M0 0h3v1h-3z M5 0h3v1h-3z M0 7h8v1h-8z M0 1h1v6h-1z M7 1h1v6h-1z M2 2h4v1h-4z M2 3h1v1h-1z M2 5h1v1h-1z M5 3h1v3h-1z M2 6h4v1h-4z" fill="#EDF0F3"/><path d="M3 3h2v2h-2z" fill="#2563EB"/></g>
+<text class="dim" x="108" y="1280" text-anchor="middle" >16 px</text>
+<rect x="178" y="1208" width="60" height="60" fill="#101317" stroke="#2B3138"/>
+<g transform="translate(198 1228) scale(2)"><path d="M0 0h4v1h-4z M6 0h4v1h-4z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v8h-1z M1.5 1.5h7v1h-7z M1.5 7.5h7v1h-7z M1.5 2.5h1v1.5h-1z M1.5 6h1v1.5h-1z M7.5 2.5h1v5h-1z M3 3h4v1h-4z M3 4h1v2h-1z M6 4h1v2h-1z M3 6h1v1h-1z M6 6h1v1h-1z" fill="#EDF0F3"/><path d="M4 4h2v2h-2z" fill="#2563EB"/></g>
+<text class="dim" x="208" y="1288" text-anchor="middle" >24 px</text>
+<rect x="274" y="1208" width="68" height="68" fill="#101317" stroke="#2B3138"/>
+<g transform="translate(293 1227) scale(3)"><path d="M0 0h4v1h-4z M6 0h4v1h-4z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v8h-1z M1.5 1.5h7v1h-7z M1.5 7.5h7v1h-7z M1.5 2.5h1v1.5h-1z M1.5 6h1v1.5h-1z M7.5 2.5h1v5h-1z M3 3h4v1h-4z M3 4h1v2h-1z M6 4h1v2h-1z M3 6h1v1h-1z M6 6h1v1h-1z" fill="#EDF0F3"/><path d="M4 4h2v2h-2z" fill="#2563EB"/></g>
+<text class="dim" x="308" y="1296" text-anchor="middle" >32 px</text>
+<text class="dim" x="100" y="1194" text-anchor="start" >ACTUAL SIZE</text>
+<text class="dim" x="408" y="1194" text-anchor="start" >MAGNIFIED</text>
+<rect x="402" y="1206" width="76" height="76" fill="#101317" stroke="#2B3138"/>
+<g transform="translate(408 1212) scale(4)">
+<g transform="translate(0 0) scale(2)"><path d="M0 0h3v1h-3z M5 0h3v1h-3z M0 7h8v1h-8z M0 1h1v6h-1z M7 1h1v6h-1z M2 2h4v1h-4z M2 3h1v1h-1z M2 5h1v1h-1z M5 3h1v3h-1z M2 6h4v1h-4z" fill="#EDF0F3"/><path d="M3 3h2v2h-2z" fill="#2563EB"/></g>
+</g>
+<text class="dim" x="440" y="1298" text-anchor="middle" >16 px &#215; 4</text>
+<rect x="506" y="1206" width="84" height="84" fill="#101317" stroke="#2B3138"/>
+<g transform="translate(512 1212) scale(3)">
+<g transform="translate(2 2) scale(2)"><path d="M0 0h4v1h-4z M6 0h4v1h-4z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v8h-1z M1.5 1.5h7v1h-7z M1.5 7.5h7v1h-7z M1.5 2.5h1v1.5h-1z M1.5 6h1v1.5h-1z M7.5 2.5h1v5h-1z M3 3h4v1h-4z M3 4h1v2h-1z M6 4h1v2h-1z M3 6h1v1h-1z M6 6h1v1h-1z" fill="#EDF0F3"/><path d="M4 4h2v2h-2z" fill="#2563EB"/></g>
+</g>
+<text class="dim" x="548" y="1306" text-anchor="middle" >24 px &#215; 3</text>
+<rect x="618" y="1206" width="92" height="92" fill="#101317" stroke="#2B3138"/>
+<g transform="translate(624 1212) scale(2.5)">
+<g transform="translate(1 1) scale(3)"><path d="M0 0h4v1h-4z M6 0h4v1h-4z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v8h-1z M1.5 1.5h7v1h-7z M1.5 7.5h7v1h-7z M1.5 2.5h1v1.5h-1z M1.5 6h1v1.5h-1z M7.5 2.5h1v5h-1z M3 3h4v1h-4z M3 4h1v2h-1z M6 4h1v2h-1z M3 6h1v1h-1z M6 6h1v1h-1z" fill="#EDF0F3"/><path d="M4 4h2v2h-2z" fill="#2563EB"/></g>
+</g>
+<text class="dim" x="664" y="1314" text-anchor="middle" >32 px &#215; 2.5</text>
+<text class="bold" x="100" y="1410" text-anchor="start" >DOCUMENTED OPTICAL CORRECTIONS</text>
+<text class="sm" x="100" y="1432" text-anchor="start" >32 px &#8212; full canonical master; X = 3 px on a 30 px optical box (X/2 gap renders at 1.5 px).</text>
+<text class="sm" x="100" y="1452" text-anchor="start" >24 px &#8212; full canonical master; X = 2 px on a 20 px optical box, every edge on a whole pixel.</text>
+<text class="sm" x="100" y="1472" text-anchor="start" >16 px &#8212; DOCUMENTED EXCEPTION. Reduced 8X two-frame micro master, X = 2 px;</text>
+<text class="sm" x="100" y="1492" text-anchor="start" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; f3 and its BOTTOM gate omitted. TOP and LEFT gates retained.</text>
+<text class="sm" x="100" y="1512" text-anchor="start" >The full master requires an even X so the X/2 gap lands on whole pixels.</text>
+<rect x="728" y="1122" width="664" height="400" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="750" y="1156">L.  EXACT COLOUR VALUES</text>
+<rect x="752" y="1196" width="56" height="56" rx="2" fill="#2563EB" stroke="#3A4149"/>
+<text class="bold" x="822" y="1214" text-anchor="start" >COBALT BLUE</text>
+<text class="sm" x="822" y="1232" text-anchor="start" >HEX #2563EB &#160;&#160; RGB 37, 99, 235</text>
+<text class="sm" x="822" y="1248" text-anchor="start" >CMYK 84, 58, 0, 8 &#160;&#160; &#183; &#160;&#160; CORE + OS ONLY</text>
+<rect x="752" y="1270" width="56" height="56" rx="2" fill="#EDF0F3" stroke="#3A4149"/>
+<text class="bold" x="822" y="1288" text-anchor="start" >ICE NEUTRAL</text>
+<text class="sm" x="822" y="1306" text-anchor="start" >HEX #EDF0F3 &#160;&#160; RGB 237, 240, 243</text>
+<text class="sm" x="822" y="1322" text-anchor="start" >CMYK 2, 1, 0, 5 &#160;&#160; &#183; &#160;&#160; FRAMES / TYPE ON DARK</text>
+<rect x="752" y="1344" width="56" height="56" rx="2" fill="#8A93A0" stroke="#3A4149"/>
+<text class="bold" x="822" y="1362" text-anchor="start" >STEEL NEUTRAL</text>
+<text class="sm" x="822" y="1380" text-anchor="start" >HEX #8A93A0 &#160;&#160; RGB 138, 147, 160</text>
+<text class="sm" x="822" y="1396" text-anchor="start" >CMYK 14, 8, 0, 37 &#160;&#160; &#183; &#160;&#160; GRID / TINTED UI</text>
+<rect x="752" y="1418" width="56" height="56" rx="2" fill="#191C20" stroke="#3A4149"/>
+<text class="bold" x="822" y="1436" text-anchor="start" >DARK NEUTRAL</text>
+<text class="sm" x="822" y="1454" text-anchor="start" >HEX #191C20 &#160;&#160; RGB 25, 28, 32</text>
+<text class="sm" x="822" y="1470" text-anchor="start" >CMYK 22, 13, 0, 87 &#160;&#160; &#183; &#160;&#160; FRAMES / TYPE ON LIGHT</text>
+<line x1="752" y1="1464" x2="1368" y2="1464" stroke="#31373E"/>
+<text class="dim" x="752" y="1488" text-anchor="start" fill="#EDF0F3">BINDING: BLUE IS USED ONLY FOR THE CENTRAL CORE AND THE &#8220;OS&#8221; WORDMARK.</text>
+<text class="dim" x="752" y="1506" text-anchor="start" >STRUCTURAL FRACTAL FRAMES ARE NEVER COBALT, IN ANY APPLICATION.</text>
+<rect x="1408" y="1122" width="664" height="400" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="1430" y="1156">M.  OPTIONAL TAGLINE LOCKUP</text>
+<text class="pcap" x="1430" y="1506">TAGLINE SET IN NEUTRAL ONLY &#183; NEVER COBALT</text>
+<g transform="translate(1550.0000 1230.0000) scale(8.005779)" ><use href="#frames" fill="#EDF0F3"/><use href="#core" fill="#2563EB"/></g><g transform="translate(1654.0751 1294.0462) scale(8.005779)"><use href="#wm-cto" fill="#EDF0F3"/><use href="#wm-os" fill="#2563EB"/></g>
+<line x1="1550" y1="1334.08" x2="1930" y2="1334.08" stroke="#3A4149"/>
+<text class="lbl" x="1740" y="1368.08" text-anchor="middle" letter-spacing="2.2" font-size="15" fill="#EDF0F3">KNOW WHAT IS TRUE.</text>
+<text class="lbl" x="1740" y="1392.08" text-anchor="middle" letter-spacing="2.2" font-size="15" fill="#EDF0F3">PROVE WHAT IS REAL.</text>
+<text class="lbl" x="1740" y="1416.08" text-anchor="middle" letter-spacing="2.2" font-size="15" fill="#EDF0F3">CONTROL WHAT MATTERS.</text>
+<rect x="2088" y="1122" width="664" height="400" rx="3" fill="#1D2024" stroke="#31373E"/>
+<text class="plabel" x="2110" y="1156">N.  PHYSICAL GOVERNANCE REPORT</text>
+<text class="pcap" x="2110" y="1506">EXACT CANONICAL MASTER &#183; DEBOSS + FOIL</text>
+<rect x="2427" y="1193" width="262" height="288" rx="2" fill="#0A0C0E" opacity="0.6"/>
+<rect x="2418" y="1182" width="262" height="288" rx="2" fill="url(#cover)" stroke="#3B434C"/>
+<rect x="2418" y="1182" width="13" height="288" fill="url(#spine)"/>
+<g opacity="0.5"><g transform="translate(2526.9000 1241.4000) scale(6.000000)" ><use href="#frames" fill="#0D0F12"/><use href="#core" fill="#0D0F12"/></g><g transform="translate(2453.5029 1355.4000) scale(6.000000)"><use href="#wm-cto" fill="#0D0F12"/><use href="#wm-os" fill="#0D0F12"/></g></g>
+<g transform="translate(2525.5000 1240.0000) scale(6.000000)" ><use href="#frames" fill="#EDF0F3"/><use href="#core" fill="#2563EB"/></g><g transform="translate(2452.1029 1354.0000) scale(6.000000)"><use href="#wm-cto" fill="#EDF0F3"/><use href="#wm-os" fill="#2563EB"/></g>
+<line x1="2458" y1="1398" x2="2652" y2="1398" stroke="#5A636D"/>
+<text class="dim" x="2458" y="1422" fill="#C9D1D9">GOVERNANCE REPORT</text>
+<text class="dim" x="2458" y="1440" text-anchor="start" >ANNUAL EDITION</text>
+<text class="bold" x="2112" y="1204" text-anchor="start" >PERMITTED</text>
+<text class="sm" x="2112" y="1226" text-anchor="start" >&#183; Emboss / deboss</text>
+<text class="sm" x="2112" y="1246" text-anchor="start" >&#183; Foil / ink</text>
+<text class="sm" x="2112" y="1266" text-anchor="start" >&#183; Material texture</text>
+<text class="bold" x="2112" y="1308" text-anchor="start" >NOT PERMITTED</text>
+<text class="sm" x="2112" y="1330" text-anchor="start" >&#183; Geometry change</text>
+<text class="sm" x="2112" y="1350" text-anchor="start" >&#183; Gate re-orientation</text>
+<text class="sm" x="2112" y="1370" text-anchor="start" >&#183; Extra / fewer frames</text>
+<text class="sm" x="2112" y="1390" text-anchor="start" >&#183; Core repositioning</text>
+<text class="sm" x="2112" y="1410" text-anchor="start" >&#183; Colour-hierarchy change</text>
+<text class="sm" x="2112" y="1434" text-anchor="start" >FULL COLOUR: NEUTRAL FRAMES</text>
+<text class="sm" x="2112" y="1452" text-anchor="start" >+ COBALT CORE.</text>
+<text class="sm" x="2112" y="1472" text-anchor="start" >MONOCHROME: ONE INK ONLY.</text>
+<rect x="48" y="1538" width="2704" height="114" rx="3" fill="#22262B" stroke="#31373E"/>
+<text class="plabel" x="72" y="1578" text-anchor="start" font-size="20">CTO OS FRACTAL CORE MARK &#8212; VECTOR MASTER v2 &#183; VQA-01 / VQA-02 CLOSED</text>
+<text class="dim" x="72" y="1616" text-anchor="start" >CONCEPT</text>
+<text class="ok" x="72" y="1636" text-anchor="start" >FROZEN</text>
+<text class="dim" x="512" y="1616" text-anchor="start" >THREE FRAMES</text>
+<text class="ok" x="512" y="1636" text-anchor="start" >VERIFIED</text>
+<text class="dim" x="952" y="1616" text-anchor="start" >GATE SEQUENCE</text>
+<text class="ok" x="952" y="1636" text-anchor="start" >VERIFIED</text>
+<text class="dim" x="1392" y="1616" text-anchor="start" >WORDMARK</text>
+<text class="ok" x="1392" y="1636" text-anchor="start" >UNCHANGED</text>
+<text class="dim" x="1832" y="1616" text-anchor="start" >VERTICAL LOCKUP</text>
+<text class="ok" x="1832" y="1636" text-anchor="start" >BOUNDED</text>
+<text class="dim" x="2272" y="1616" text-anchor="start" >MONOCHROME</text>
+<text class="ok" x="2272" y="1636" text-anchor="start" >DOCUMENTED</text>
+</svg>

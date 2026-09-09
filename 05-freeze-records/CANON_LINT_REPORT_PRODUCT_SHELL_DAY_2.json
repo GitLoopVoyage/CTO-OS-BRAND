@@ -1,0 +1,101 @@
+{
+ "tool": "canon-lint",
+ "generated": "2026-09-09T11:13:27.973Z",
+ "ruleset": {
+  "canon-lint.js": {
+   "sha256": "ce172f94626c169824ea9a1209022ed936c58c0500aeab54391c1d41e5966a57",
+   "bytes": 20691
+  },
+  "canon-vocabulary.json": {
+   "sha256": "e18e14c3628c17be1327ac1db30b10b48f097afa9bcccd8e3c0203f36eacb632",
+   "bytes": 3295,
+   "source": "CTO_OS_VISUAL_CANON_MODEL_EXTRACT_V0.1_20260903.md"
+  }
+ },
+ "files": [
+  {
+   "file": "product-shell.html",
+   "sha256": "1e54c7fa2616c5c6441660cbb7e7652505b4ef65b4552db56f034e141f62aa94",
+   "bytes": 46536,
+   "errors": 0,
+   "warns": 5,
+   "findings": [
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Supplied\" with no data-axis.",
+     "where": "span.lbl \"Supplied\"",
+     "detail": "value exists on axis: evidence-presence. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Unreviewed\" with no data-axis.",
+     "where": "span.lbl \"Unreviewed\"",
+     "detail": "value exists on axis: evidence-review. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Missing\" with no data-axis.",
+     "where": "span.lbl \"Missing\"",
+     "detail": "value exists on axis: evidence-presence. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"UNKNOWN\" with no data-axis.",
+     "where": "span.mono \"UNKNOWN\"",
+     "detail": "value exists on axis: epistemic/effect-certainty. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"SUPPORTED\" with no data-axis.",
+     "where": "span.mono \"SUPPORTED\"",
+     "detail": "value exists on axis: epistemic. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R4-assurance-needs-evidence",
+     "sev": "INFO",
+     "msg": "Renders \"ASSURED\" with no data-evidence reference in scope. (appears in an explanatory or prohibitive sentence)",
+     "where": "span \"Stages are product labels. They carry no forma\"",
+     "detail": "extract section 6: never render ASSURED / VERIFIED / PROVEN solely because evidence is SUPPLIED or REVIEWED"
+    }
+   ],
+   "distribution": {
+    "total": 21,
+    "settled": 5,
+    "unsettled": 16
+   }
+  },
+  {
+   "file": "fractal-pulse.html",
+   "sha256": "d3b6f8effb4314debe6d32055c4d148206de68641e33084287253f95e0d091b4",
+   "bytes": 49226,
+   "errors": 0,
+   "warns": 2,
+   "findings": [
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Hold\" with no data-axis.",
+     "where": "div.state-name \"Hold\"",
+     "detail": "value exists on axis: aer-decision/disposition. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Complete\" with no data-axis.",
+     "where": "div.state-name \"Complete\"",
+     "detail": "value exists on axis: effect-extent. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    }
+   ],
+   "distribution": {
+    "total": 2,
+    "settled": 0,
+    "unsettled": 2
+   }
+  }
+ ]
+}
