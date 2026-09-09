@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CTO OS &#183; Change Control Pipeline &#183; Day 5</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../04-product-shell/canon-tokens.css">
+<link rel="stylesheet" href="../04-product-shell/product-shell.css">
+<style>
+html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:var(--f-body);font-size:var(--t-body);line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* ---- Change card. Composed from frozen Day 2 primitives; the only new
+   structure is the ROUTE interrupt, which is not a stage. ---- */
+.pipe{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);display:flex;flex-direction:column}
+.pipe>header{display:grid;grid-template-columns:86px minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:11px var(--panel-pad);border-bottom:1px solid var(--c-line)}
+.pipe>header .id{font-family:var(--f-mono);font-size:11.5px;color:var(--c-ink-100)}
+.pipe>header .subj{font-size:13px;color:var(--c-ink-100)}
+.pipe>header .subj small{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--c-ink-45);margin-top:2px;letter-spacing:.03em}
+.pipe .track{padding:12px var(--panel-pad) 4px;display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px 0}
+.pipe .under{padding:6px var(--panel-pad) 12px}
+.pipe .under .specrow{grid-template-columns:132px minmax(0,1fr)}
+
+/* ROUTE interrupt: breaks the strip. It carries the UNDERLYING axis and value,
+   never a stage token, and it takes the colour of its cause - amber or signal
+   only when the underlying state is an attention state; ink otherwise. */
+.route{display:inline-flex;flex-direction:column;gap:4px;align-self:stretch;padding:5px 10px 6px;margin:0 6px;border:1px solid var(--c-line);border-left:2px solid var(--c-ink-45);background:var(--c-surface-2)}
+.route .rk{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-ink-45)}
+.route .rv{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--c-ink-80)}
+.route .rv .ax{color:var(--c-ink-30);letter-spacing:.02em;margin-right:6px;font-size:10px}
+.route .rc{font-size:11px;color:var(--c-ink-60)}
+.route.attn{border-left-color:var(--c-amber)} .route.attn .rk,.route.attn .rv{color:var(--c-amber)}
+.route.attn .rv .ax{color:var(--c-amber);opacity:.7}
+.route.blk{border-left-color:var(--c-signal)} .route.blk .rk,.route.blk .rv{color:var(--c-signal)}
+.route.blk .rv .ax{color:var(--c-signal);opacity:.7}
+.route.past{opacity:.72}
+.stage span[data-claimed="false"][data-withdrawn="true"]{text-decoration:line-through;text-decoration-color:var(--c-ink-45);color:var(--c-ink-45)}
+
+/* cause chips beneath a route */
+.causes{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.causes .k{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--c-ink-30);margin-right:5px}
+.causes .val{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--c-ink-80)}
+.causes .val[data-status="MISSING"],.causes .val[data-status="PENDING"],.causes .val[data-status="UNREVIEWED"]{color:var(--c-ink-60)}
+.causes .val[data-axis="effect-certainty"][data-status="UNKNOWN"]{color:var(--c-ink-60)}
+.causes .asof{font-family:var(--f-mono);font-size:10px;color:var(--c-ink-30);margin-left:6px;letter-spacing:0}
+
+/* route legend */
+.legend{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.legend .lg{border:1px solid var(--c-line);border-radius:var(--radius);padding:10px 12px;background:var(--c-surface-2);display:flex;flex-direction:column;gap:5px}
+.legend .lg .t{font-size:12.5px;color:var(--c-ink-100)}
+.legend .lg .a{font-family:var(--f-mono);font-size:10.5px;color:var(--c-ink-60);letter-spacing:.03em;margin-top:auto;padding-top:6px;border-top:1px solid var(--c-line-soft)}
+.legend .lg .d{font-size:11.5px;color:var(--c-ink-45);line-height:1.45}
+@media (max-width:1100px){.legend{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.filter{display:flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:11px;color:var(--c-ink-45);padding:2px 2px 0}
+.filter b{color:var(--c-ink-80);font-weight:500}
+</style>
+</head>
+<body>
+
+<div style="max-width:1320px;margin:0 auto;padding:24px 20px 56px;display:flex;flex-direction:column;gap:18px">
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <span class="lbl">CTO_OS_VISUAL_CANON_V0.1 &#183; Phase B &#183; Artifact 04 &#183; Day 5</span>
+    <h1 style="font-family:var(--f-display);font-size:clamp(26px,3.2vw,38px);font-weight:700;letter-spacing:-.02em;color:var(--c-ink-100);margin:0">Change Control Pipeline</h1>
+    <p style="margin:0;max-width:72ch;color:var(--c-ink-60);font-size:14.5px;line-height:1.55;text-wrap:pretty">Six display stages, not a state machine (extract &#167;9). A stage is a product label; where it is load-bearing it resolves to the axis beneath it. A HOLD or BLOCK route interrupts the strip and carries that underlying axis with it, so the screen never says a change is &#8220;on hold&#8221; without saying whether the hold is authority, attempt, evidence, runtime uncertainty or a human decision. Every component is the frozen Day 2 shell; the route interrupt is the one new structure, and it is not a stage.</p>
+  </div>
+
+  <div class="app" data-density="comfortable" data-fixture-root="synthetic" data-fixture="synthetic" data-screen-label="Change Control Pipeline">
+    <div class="rail">
+      <div class="brand"><span class="wm">CTO <i data-role="wordmark-os">OS</i></span></div>
+      <div class="navsec">
+        <div class="lbl">Command</div>
+        <nav class="nav">
+          <a href="#"><svg class="gl" viewBox="0 0 10 10" aria-hidden="true"><path d="M0 0h4v1h-4z M6 0h4v1h-4z M0 9h10v1h-10z M0 1h1v8h-1z M9 1h1v8h-1z M1.5 1.5h7v1h-7z M1.5 7.5h7v1h-7z M1.5 2.5h1v1.5h-1z M1.5 6h1v1.5h-1z M7.5 2.5h1v5h-1z M3 3h4v1h-4z M3 4h1v2h-1z M6 4h1v2h-1z M3 6h1v1h-1z M6 6h1v1h-1z" fill="currentColor"></path><rect x="4" y="4" width="2" height="2" fill="#2563EB" data-role="core"></rect></svg>Command Center</a>
+        </nav>
+      </div>
+      <div class="navsec">
+        <div class="lbl">Beneath CTO OS</div>
+        <nav class="nav">
+          <a href="#">Technical State<span class="ct">2 417</span></a>
+          <a href="#">Decisions<span class="ct">31</span></a>
+          <a href="#">Authority<span class="ct">18</span></a>
+          <a href="#">Assurance<span class="ct">7</span></a>
+          <a href="#">Capabilities<span class="ct">9</span></a>
+        </nav>
+      </div>
+      <div class="navsec">
+        <div class="lbl">Registers</div>
+        <nav class="nav">
+          <a href="#">Decision Ledger</a>
+          <a href="#">Assumption Registry<span class="ct">3</span></a>
+          <a href="#" aria-current="page">Change Pipeline<span class="ct">12</span></a>
+        </nav>
+      </div>
+      <div class="railfoot">
+        <div class="lbl" style="margin-bottom:5px">Operating beneath</div>
+        <div class="mono" style="font-size:11px;color:var(--c-ink-60)">Accountable human authority</div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <div class="cmd" style="gap:10px"><span>Search changes, decisions, evidence&#8230;</span><kbd>&#8984;K</kbd></div>
+        <div class="tb-actions">
+          <button class="btn" aria-pressed="false" data-role="interactive-primary">Compact</button>
+          <button class="btn" aria-pressed="false" data-role="interactive-primary">Light</button>
+        </div>
+      </div>
+
+      <div class="scope">
+        <span>Meridian Logistics</span><span class="sep">/</span>
+        <span>Fulfilment</span><span class="sep">/</span>
+        <span class="cur">Change Pipeline</span>
+        <span class="asof">Register read 2026&#8209;09&#8209;03 09:14:22Z</span>
+      </div>
+
+      <div class="content" style="display:flex;flex-direction:column;gap:12px">
+
+        <div class="filter"><span>Showing <b>7</b> of <b>12</b> changes</span><span>&#183;</span><span>filter: <b>demo path + every route class</b></span><span>&#183;</span><span>order: most recent event first</span></div>
+
+        <!-- ================= chg-0912 : the demo path. Block history, then hold. ================= -->
+        <div class="pipe">
+          <header>
+            <span class="id">chg-0912</span>
+            <span class="subj">Deploy svc-routing to prod behind the routing flag<small>svc-routing &#183; 5 declared effects &#183; requested 2026&#8209;09&#8209;01 by role: release owner</small></span>
+            <span class="lbl">Same change as Command Center</span>
+          </header>
+          <div class="track">
+            <span class="stage">
+              <span data-reached="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-09-01T14:02:00Z" data-fixture-ref="demo">REQUEST</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-authority-ref="auth-4471" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">AUTHORIZED</span>
+            </span>
+            <div class="route blk past">
+              <span class="rk">Block route &#183; past</span>
+              <span class="rv"><span class="ax">attempt</span><span data-axis="attempt" data-status="BLOCKED" data-terminal="true" data-asof="2026-09-02T07:58:00Z" data-fixture-ref="demo">BLOCKED</span></span>
+              <span class="rc">att-1187 &#183; cap-117 &#183; consumed, not restored</span>
+            </div>
+            <span class="stage">
+              <span data-reached="true" data-current="true" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">IMPLEMENTED</span>
+            </span>
+            <div class="route attn">
+              <span class="rk">Hold route &#183; current</span>
+              <span class="rv"><span class="ax">aer-decision</span><span data-axis="aer-decision" data-status="HOLD" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">HOLD</span></span>
+              <span class="rc">cause: missing evidence &#183; and a human hold</span>
+            </div>
+            <span class="stage">
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="ASSURED" data-fixture-ref="demo">ASSURED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="RUNTIME" data-fixture-ref="demo">RUNTIME</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="CLOSED" data-fixture-ref="demo">CLOSED</span>
+            </span>
+          </div>
+          <div class="under rowlist">
+            <div class="specrow"><span class="lbl">Block &#183; underlying</span>
+              <span class="causes"><span><span class="k">attempt</span><span class="val" data-axis="attempt" data-status="BLOCKED" data-terminal="true" data-asof="2026-09-02T07:58:00Z" data-fixture-ref="demo">BLOCKED</span></span><span><span class="k">boundary</span><span class="val" data-axis="boundary" data-status="NOT_PROVIDED_FAIL_CLOSED" data-fixture-ref="demo">NOT_PROVIDED_FAIL_CLOSED</span></span><span class="asof">att-1187 &#183; under cap-117, prior to dec-0295 &#183; 2026&#8209;09&#8209;02 07:58Z</span></span></div>
+            <div class="specrow"><span class="lbl">Re-authorised</span>
+              <span class="causes"><span><span class="k">disposition</span><span class="val disp" data-axis="disposition" data-status="MODIFY" data-asof="2026-09-02T08:31:00Z" data-fixture-ref="demo">MODIFY</span></span><span class="asof">dec-0295 narrowed cap-118 to one attempt, one window &#183; the block is history, not undone</span></span></div>
+            <div class="specrow"><span class="lbl">Hold &#183; underlying</span>
+              <span class="causes">
+                <span><span class="k">evidence</span><span class="val" data-axis="evidence-presence" data-status="MISSING" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">MISSING</span> <span class="val" data-axis="evidence-review" data-status="UNREVIEWED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">UNREVIEWED</span><span class="asof">effects 4&#8211;5 of 5</span></span>
+                <span><span class="k">attempt</span><span class="val" data-axis="attempt" data-status="HELD" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">HELD</span><span class="asof">att-1190 &#183; the single attempt under cap-118</span></span>
+                <span><span class="k">decision</span><span class="val disp" data-axis="disposition" data-status="HOLD" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">HOLD</span><span class="asof">dec-0301</span></span>
+              </span></div>
+            <div class="specrow"><span class="lbl">Why ASSURED cannot be claimed</span>
+              <span style="font-size:12px;color:var(--c-ink-60)">Effects 1&#8211;3 are <span class="ev" data-evidence-id="ev-8801" data-fixture-ref="demo">ev-8801</span> supplied and reviewed; effects 4&#8211;5 have no reference; no independent verification of record. Supplying the missing evidence lifts the evidence cause only &#8212; the human hold (dec-0301) is a separate act and lifts separately.</span></div>
+          </div>
+        </div>
+
+        <!-- ================= chg-0915 : authority hold ================= -->
+        <div class="pipe">
+          <header>
+            <span class="id">chg-0915</span>
+            <span class="subj">Rebalance svc-inventory replica weights<small>svc-inventory &#183; 2 declared effects &#183; requested 2026&#8209;09&#8209;02 by role: platform lead</small></span>
+            <span class="lbl">Authority hold</span>
+          </header>
+          <div class="track">
+            <span class="stage">
+              <span data-reached="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-09-02T10:20:00Z" data-fixture-ref="demo">REQUEST</span>
+              <span data-reached="true" data-claimed="false" data-withdrawn="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-fixture-ref="demo">AUTHORIZED</span>
+            </span>
+            <div class="route attn">
+              <span class="rk">Hold route &#183; current</span>
+              <span class="rv"><span class="ax">authority</span><span class="auth" data-axis="authority" data-status="SUSPENDED" data-asof="2026-09-03T08:40:00Z" data-fixture-ref="demo">SUSPENDED</span></span>
+              <span class="rc">cause: authority hold &#183; auth-4390</span>
+            </div>
+            <span class="stage">
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-fixture-ref="demo">IMPLEMENTED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="ASSURED" data-fixture-ref="demo">ASSURED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="RUNTIME" data-fixture-ref="demo">RUNTIME</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="CLOSED" data-fixture-ref="demo">CLOSED</span>
+            </span>
+          </div>
+          <div class="under rowlist">
+            <div class="specrow"><span class="lbl">Hold &#183; underlying</span>
+              <span class="causes">
+                <span><span class="k">authority</span><span class="val auth" data-axis="authority" data-status="SUSPENDED" data-asof="2026-09-03T08:40:00Z" data-fixture-ref="demo">SUSPENDED</span><span class="asof">auth-4390 &#183; suspended on adverse <span class="ev adverse" data-evidence-id="ev-8804" data-fixture-ref="demo">ev-8804</span> by dec-0298</span></span>
+                <span><span class="k">decision</span><span class="val disp" data-axis="disposition" data-status="ACCEPT" data-asof="2026-09-03T08:40:00Z" data-fixture-ref="demo">ACCEPT</span><span class="asof">dec-0298 accepted the suspension &#183; that is the human act; the hold itself is the authority state</span></span>
+              </span></div>
+            <div class="specrow"><span class="lbl">Stage label</span>
+              <span style="font-size:12px;color:var(--c-ink-60)">AUTHORIZED was reached on 09&#8209;02 and is now struck: the label resolved to auth-4390, and auth-4390 is no longer ACTIVE. The record is not deleted and the history is not rewritten &#8212; the label is withdrawn because its basis changed. No attempt was begun under it.</span></div>
+          </div>
+        </div>
+
+        <!-- ================= chg-0898 : runtime uncertainty ================= -->
+        <div class="pipe">
+          <header>
+            <span class="id">chg-0898</span>
+            <span class="subj">worker-reindex: switch to incremental index build<small>worker-reindex &#183; 3 declared effects &#183; requested 2026&#8209;08&#8209;28 by role: data platform</small></span>
+            <span class="lbl">Runtime uncertainty</span>
+          </header>
+          <div class="track">
+            <span class="stage">
+              <span data-reached="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-08-28T15:10:00Z" data-fixture-ref="demo">REQUEST</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-authority-ref="auth-4402" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">AUTHORIZED</span>
+              <span data-reached="true" data-current="true" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">IMPLEMENTED</span>
+            </span>
+            <div class="route">
+              <span class="rk">Hold route &#183; current</span>
+              <span class="rv"><span class="ax">effect-certainty</span><span data-axis="effect-certainty" data-status="UNKNOWN" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">UNKNOWN</span></span>
+              <span class="rc">cause: runtime uncertainty &#183; not an attention state</span>
+            </div>
+            <span class="stage">
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="ASSURED" data-fixture-ref="demo">ASSURED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="RUNTIME" data-fixture-ref="demo">RUNTIME</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="CLOSED" data-fixture-ref="demo">CLOSED</span>
+            </span>
+          </div>
+          <div class="under rowlist">
+            <div class="specrow"><span class="lbl">Hold &#183; underlying</span>
+              <span class="causes">
+                <span><span class="k">attempt</span><span class="val" data-axis="attempt" data-status="SUCCEEDED" data-terminal="true" data-asof="2026-09-01T02:12:00Z" data-fixture-ref="demo">SUCCEEDED</span><span class="asof">att-1175 &#183; success of the attempt is not truth of the effect (extract &#167;3)</span></span>
+                <span><span class="k">effect</span><span class="val" data-axis="effect-extent" data-status="PARTIAL" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">PARTIAL</span> <span class="val" data-axis="effect-certainty" data-status="UNKNOWN" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">UNKNOWN</span><span class="asof">1 of 3 confirmed; the set cannot be completed from evidence held</span></span>
+                <span><span class="k">observation</span><span class="val" data-axis="epistemic" data-status="UNVERIFIABLE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo"><span class="v">UNVERIFIABLE</span></span><span class="asof">worker-reindex exposes no runtime observation channel; no ref</span></span>
+              </span></div>
+            <div class="specrow"><span class="lbl">Colour</span>
+              <span style="font-size:12px;color:var(--c-ink-60)">This route is drawn in ink, not amber. Nothing here is a failure or a hold decision: the pipeline cannot advance because the truth is not establishable, and the canon does not style uncertainty as alarm (lint R8, R11). It stays a hold route until an observation exists or the change is withdrawn by a human act.</span></div>
+          </div>
+        </div>
+
+        <!-- ================= chg-0921 : block route, authority evaluation REJECT ================= -->
+        <div class="pipe">
+          <header>
+            <span class="id">chg-0921</span>
+            <span class="subj">Widen cap-118 to two attempts<small>svc-routing &#183; authority request &#183; requested 2026&#8209;09&#8209;03 by role: release owner</small></span>
+            <span class="lbl">Block route</span>
+          </header>
+          <div class="track">
+            <span class="stage">
+              <span data-reached="true" data-current="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-09-03T08:55:00Z" data-fixture-ref="demo">REQUEST</span>
+            </span>
+            <div class="route blk">
+              <span class="rk">Block route &#183; terminal</span>
+              <span class="rv"><span class="ax">aer-decision</span><span data-axis="aer-decision" data-status="REJECT" data-asof="2026-09-03T09:02:00Z" data-fixture-ref="demo">REJECT</span></span>
+              <span class="rc">cause: authority evaluation</span>
+            </div>
+            <span class="stage">
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="AUTHORIZED" data-fixture-ref="demo">AUTHORIZED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-fixture-ref="demo">IMPLEMENTED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="ASSURED" data-fixture-ref="demo">ASSURED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="RUNTIME" data-fixture-ref="demo">RUNTIME</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="CLOSED" data-fixture-ref="demo">CLOSED</span>
+            </span>
+          </div>
+          <div class="under rowlist">
+            <div class="specrow"><span class="lbl">Block &#183; underlying</span>
+              <span class="causes">
+                <span><span class="k">aer-decision</span><span class="val" data-axis="aer-decision" data-status="REJECT" data-asof="2026-09-03T09:02:00Z" data-fixture-ref="demo">REJECT</span><span class="asof">aer-2290 &#183; boundary</span> <span class="val" data-axis="boundary" data-status="SINGLE_BOUNDARY" data-fixture-ref="demo">SINGLE_BOUNDARY</span></span>
+                <span><span class="k">attempt</span><span class="asof" style="margin-left:0">none begun &#8212; only ALLOW may proceed to BEGIN_ATTEMPT (extract &#167;4)</span></span>
+              </span></div>
+            <div class="specrow"><span class="lbl">Reason of record</span>
+              <span style="font-size:12px;color:var(--c-ink-60)">Rejected because dec-0295 narrowed cap-118 to one attempt one day earlier and no new evidence was supplied with the request. A rejection is not a hold: nothing waits. A new request would be a new change.</span></div>
+          </div>
+        </div>
+
+        <!-- ================= chg-0905 : RUNTIME reached, CLOSED not claimed ================= -->
+        <div class="pipe">
+          <header>
+            <span class="id">chg-0905</span>
+            <span class="subj">svc-routing: enable upstream health probe<small>svc-routing &#183; 2 declared effects &#183; requested 2026&#8209;08&#8209;30 by role: release owner</small></span>
+            <span class="lbl">No route &#183; runtime reached</span>
+          </header>
+          <div class="track">
+            <span class="stage">
+              <span data-reached="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-08-30T11:40:00Z" data-fixture-ref="demo">REQUEST</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-authority-ref="auth-4471" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">AUTHORIZED</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">IMPLEMENTED</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="ASSURED" data-evidence="asr-0207" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">ASSURED</span>
+              <span data-reached="true" data-current="true" data-axis="pipeline-stage" data-status="RUNTIME" data-observation="obs-3311" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">RUNTIME</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="CLOSED" data-fixture-ref="demo">CLOSED</span>
+            </span>
+          </div>
+          <div class="under rowlist">
+            <div class="specrow"><span class="lbl">AUTHORIZED &#8594;</span>
+              <span class="causes"><span><span class="k">authority</span><span class="val auth" data-axis="authority" data-status="ACTIVE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">ACTIVE</span><span class="asof">auth-4471 &#183; deploy svc-routing &#183; prod</span></span></span></div>
+            <div class="specrow" data-evidence="asr-0207"><span class="lbl">ASSURED &#8594;</span>
+              <span class="causes"><span><span class="k">assured by</span><span class="ev" data-evidence-id="asr-0207" data-fixture-ref="demo">asr-0207</span><span class="asof">independent review of record, verifier named in the reference &#183; not inferred from</span> <span class="val" data-axis="evidence-review" data-status="REVIEWED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">REVIEWED</span></span></span></div>
+            <div class="specrow"><span class="lbl">RUNTIME &#8594;</span>
+              <span class="causes"><span><span class="k">observation</span><span class="ev" data-evidence-id="obs-3311" data-fixture-ref="demo">obs-3311</span><span class="asof">probe answering on prod edge &#183; observed 2026&#8209;09&#8209;03 09:14:22Z</span></span><span><span class="k">effect</span><span class="val" data-axis="effect-extent" data-status="COMPLETE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">COMPLETE</span> <span class="val" data-axis="effect-certainty" data-status="CONFIRMED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">CONFIRMED</span></span><span><span class="k">state</span><span class="val" data-axis="epistemic" data-status="KNOWN" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo"><span class="v">KNOWN</span></span></span></span></div>
+            <div class="specrow"><span class="lbl">CLOSED not claimed</span>
+              <span style="font-size:12px;color:var(--c-ink-60)">Successful implementation with a confirmed effect does not close a change (extract &#167;9). No closure basis has been recorded for chg-0905, so the label stays unclaimed even though every stage before it is settled.</span></div>
+          </div>
+        </div>
+
+        <!-- ================= chg-0903 : REQUEST, waiting - not a hold ================= -->
+        <div class="pipe">
+          <header>
+            <span class="id">chg-0903</span>
+            <span class="subj">svc-notify: move SMS provider to secondary region<small>svc-notify &#183; 4 declared effects &#183; requested 2026&#8209;09&#8209;01 by role: comms platform</small></span>
+            <span class="lbl">No route &#183; waiting is not a hold</span>
+          </header>
+          <div class="track">
+            <span class="stage">
+              <span data-reached="true" data-current="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-09-01T16:25:00Z" data-fixture-ref="demo">REQUEST</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="AUTHORIZED" data-fixture-ref="demo">AUTHORIZED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-fixture-ref="demo">IMPLEMENTED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="ASSURED" data-fixture-ref="demo">ASSURED</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="RUNTIME" data-fixture-ref="demo">RUNTIME</span>
+              <span data-claimed="false" data-axis="pipeline-stage" data-status="CLOSED" data-fixture-ref="demo">CLOSED</span>
+            </span>
+          </div>
+          <div class="under rowlist">
+            <div class="specrow"><span class="lbl">Why AUTHORIZED is not claimed</span>
+              <span class="causes"><span><span class="k">authority</span><span class="val auth" data-axis="authority" data-status="PENDING_VALIDITY" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">PENDING_VALIDITY</span><span class="asof">auth-4483 &#183; window opens 2026&#8209;09&#8209;04 08:00Z</span></span><span><span class="k">evidence</span><span class="val" data-axis="evidence-presence" data-status="PENDING" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">PENDING</span><span class="asof">pre-change baseline requested, not yet supplied</span></span></span></div>
+            <div class="specrow"><span class="lbl">Not a route</span>
+              <span style="font-size:12px;color:var(--c-ink-60)">Nothing has interrupted this change; it has simply not been authorised yet. A route marker here would manufacture a hold that no axis records. The pending authority is shown dotted, as on every other screen.</span></div>
+          </div>
+        </div>
+
+        <!-- ================= chg-0887 : CLOSED, with a closure basis the model does not define ================= -->
+        <div class="pipe">
+          <header>
+            <span class="id">chg-0887</span>
+            <span class="subj">svc-catalog: retire v1 read endpoint<small>svc-catalog &#183; 1 declared effect &#183; requested 2026&#8209;08&#8209;19 by role: catalog owner</small></span>
+            <span class="lbl">Closed with basis</span>
+          </header>
+          <div class="track">
+            <span class="stage">
+              <span data-reached="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-08-19T09:30:00Z" data-fixture-ref="demo">REQUEST</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-authority-ref="auth-4388" data-asof="2026-08-27T13:05:00Z" data-fixture-ref="demo">AUTHORIZED</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-08-27T13:05:00Z" data-fixture-ref="demo">IMPLEMENTED</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="ASSURED" data-evidence="asr-0199" data-asof="2026-08-27T13:05:00Z" data-fixture-ref="demo">ASSURED</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="RUNTIME" data-observation="obs-3290" data-asof="2026-08-27T13:05:00Z" data-fixture-ref="demo">RUNTIME</span>
+              <span data-reached="true" data-current="true" data-axis="pipeline-stage" data-status="CLOSED" data-closure-basis="dec-0288" data-asof="2026-08-27T13:05:00Z" data-fixture-ref="demo">CLOSED</span>
+            </span>
+          </div>
+          <div class="under rowlist">
+            <div class="specrow"><span class="lbl">CLOSED &#8594;</span>
+              <span class="causes"><span><span class="k">closure basis</span><span class="val disp" data-axis="disposition" data-status="ACCEPT" data-asof="2026-08-27T13:05:00Z" data-fixture-ref="demo">ACCEPT</span><span class="asof">dec-0288 &#183; recorded as the closure basis for chg-0887</span></span><span><span class="k">authority</span><span class="val auth" data-axis="authority" data-status="SUPERSEDED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">SUPERSEDED</span><span class="asof">auth-4388 &#183; superseded after closure; the closed label does not depend on it staying active</span></span></span></div>
+            <div class="specrow"><span class="lbl">What the model says</span>
+              <span style="font-size:12px;color:var(--c-ink-60)">The label resolves to a basis (dec-0288). The rule by which a human ACCEPT closes a change belongs to the tenant, not to CTO OS &#8212; the model requires a defined basis and does not define the rule (extract &#167;9, &#167;12). The screen therefore shows the reference and stops.</span></div>
+            <div class="specrow"><span class="lbl">Refs</span>
+              <span class="causes"><span><span class="ev" data-evidence-id="asr-0199" data-fixture-ref="demo">asr-0199</span><span class="asof">independent review of record</span></span><span><span class="ev" data-evidence-id="obs-3290" data-fixture-ref="demo">obs-3290</span><span class="asof">v1 endpoint returning 410 on prod edge, observed 2026&#8209;08&#8209;27 13:05Z &#183; as-of is 7 d old and shown; a current claim would need a current observation</span></span></span></div>
+          </div>
+        </div>
+
+        <!-- ================= Route legend ================= -->
+        <div class="panel span-12" style="margin-top:4px">
+          <header><h3>Five things a hold can be</h3><span class="lbl">Extract &#167;9 &#183; the route names its axis</span></header>
+          <div class="pbody">
+            <div class="legend" data-lint-scope="component-documentation">
+              <div class="lg"><span class="t">Authority hold</span><span class="d">The record beneath AUTHORIZED is no longer ACTIVE, or the evaluation returned HOLD / REJECT. Nothing about the work is asserted.</span><span class="a">authority &#183; aer-decision</span></div>
+              <div class="lg"><span class="t">Attempt held or blocked</span><span class="d">HELD is not failure; BLOCKED is terminal and never restores consumed authority. The boundary outcome is shown beside it.</span><span class="a">attempt &#183; boundary</span></div>
+              <div class="lg"><span class="t">Missing evidence</span><span class="d">Required evidence MISSING or PENDING, or SUPPLIED but UNREVIEWED. Which effects it covers is stated, never summarised.</span><span class="a">evidence-presence &#183; evidence-review</span></div>
+              <div class="lg"><span class="t">Runtime uncertainty</span><span class="d">The effect set cannot be established. Drawn in ink, not amber: uncertainty is a state, not an alarm.</span><span class="a">effect-certainty &#183; epistemic</span></div>
+              <div class="lg"><span class="t">Human disposition</span><span class="d">An accountable person decided HOLD or REJECT after evidence. It lifts only by another human act, whatever the evidence does.</span><span class="a">disposition</span></div>
+            </div>
+            <p style="margin:12px 0 0;font-size:12px;color:var(--c-ink-45);max-width:96ch">A change can be held for more than one of these at once (chg-0912 has three). The screen lists each; it does not merge them into one &#8220;on hold&#8221; badge, because lifting one does not lift the others. The route marker takes the colour of its cause &#8212; amber or signal only when the underlying state is itself an attention state &#8212; and a route is never drawn where no axis records an interruption.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="border:1px solid var(--c-line);border-left:2px solid var(--c-cobalt);border-radius:var(--radius);padding:14px 16px;background:var(--c-surface);font-size:13px;color:var(--c-ink-60)">
+    <b style="color:var(--c-ink-100);font-weight:600">Reference tenant is synthetic.</b> Meridian Logistics, its services, changes, authorities, attempts, evidence records and decisions are invented. The screen declares <span class="mono">data-fixture-root="synthetic"</span>; every fixture node is inside it. The seven changes shown were chosen to exercise each route class once and the demo path end to end; that is a coverage choice for a canon artifact, not a claim about how a real register distributes, and no distribution rule exists (extract &#167;11.10). chg-0912 is the same record as on the Command Center (Day 4, under review) and agrees with it in every value. Composition sources: rail Art. 21.2, stages extract &#167;9, as-of rule &#167;10, vocabularies Model Extract v0.1. Components: frozen Day 2 <span class="mono">product-shell.html</span> (1e54c7fa&#8230;) and <span class="mono">canon-tokens.css</span> (3d944a63&#8230;), via the derived <span class="mono">product-shell.css</span>.
+  </div>
+</div>
+</body>
+</html>

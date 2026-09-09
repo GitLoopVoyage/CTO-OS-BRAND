@@ -1,0 +1,262 @@
+/*!
+ * CTO OS — Product Shell stylesheet  v0.1  (DERIVED ARTIFACT — do not edit)
+ * Source: product-shell.html  sha256 1e54c7fa2616c5c6441660cbb7e7652505b4ef65b4552db56f034e141f62aa94
+ * Derivation: 04-product-shell/derive-shell-css.py (deterministic; run with --check to verify)
+ * Content below is the source's single <style> block, byte for byte.
+ * Load AFTER canon-tokens.css. Shipped because compositions (Command Center, Day 4)
+ * need to link the shell without embedding the gallery page.
+ */
+
+:root{
+  --c-ground:#0B0D10; --c-surface:#14181D; --c-surface-2:#1A1F26; --c-surface-3:#212831;
+  --c-line:#232A33; --c-line-soft:#1B212A;
+  --c-ink-100:#EDF0F3; --c-ink-80:#C2CBD5; --c-ink-60:#96A1AD; --c-ink-45:#737E8A;
+  --c-ink-30:#565F6A; --c-ink-20:#3E464F;
+  --c-cobalt:#2563EB; --c-cobalt-ui:#5B93FF;
+  --c-amber:#D8A233; --c-signal:#E5484D;
+  --e-known:#E2EBFF;
+  --e-supported:#C3CBDC;
+  --e-partially-supported:#A7AEBD;
+  --e-inferred:#8F96A2;
+  --e-conflicted:#E0AE4A;
+  --e-stale:#E0AE4A;
+  --e-unknown:#7E848E;
+  --e-unverifiable:#7E848E;
+  --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'IBM Plex Mono','DejaVu Sans Mono',monospace;
+  --row-h:34px; --panel-pad:16px; --gap:12px; --radius:2px;
+  --rail-w:216px; --bar-h:50px; --scope-h:38px;
+  --t-body:13.5px; --t-data:11.5px; --t-label:10px;
+}
+[data-density="compact"]{ --row-h:26px; --panel-pad:12px; --gap:8px; --t-body:12.5px; --t-data:11px; }
+[data-surface="light"]{
+  --c-ground:#EDF0F4; --c-surface:#FFFFFF; --c-surface-2:#E7ECF2; --c-surface-3:#DCE3EB;
+  --c-line:#D2D9E2; --c-line-soft:#E5EAF0;
+  --c-ink-100:#10151B; --c-ink-80:#333D49; --c-ink-60:#5B6773; --c-ink-45:#7B8794;
+  --c-ink-30:#9AA4AF; --c-ink-20:#C0C8D1;
+  --c-cobalt-ui:#1D4FD7; --c-amber:#8A6413; --c-signal:#C7343A;
+  --e-known:#25272A;
+  --e-supported:#3A3D42;
+  --e-partially-supported:#4D5157;
+  --e-inferred:#5F636C;
+  --e-conflicted:#7A5A10;
+  --e-stale:#7A5A10;
+  --e-unknown:#6F747D;
+  --e-unverifiable:#6F747D;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--c-ground);color:var(--c-ink-80);
+     font-family:var(--f-body);font-size:var(--t-body);line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.lbl{font-family:var(--f-mono);font-size:var(--t-label);letter-spacing:.14em;text-transform:uppercase;color:var(--c-ink-45)}
+
+/* ============================ APP SHELL ============================ */
+.app{display:grid;grid-template-columns:var(--rail-w) 1fr;min-height:760px;
+     border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;background:var(--c-ground)}
+
+/* --- left rail: Art. 21.2 system position, top to bottom --- */
+.rail{background:var(--c-surface);border-right:1px solid var(--c-line);display:flex;flex-direction:column}
+.brand{height:var(--bar-h);display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--c-line)}
+.brand .wm{font-family:var(--f-display);font-weight:600;font-size:14px;letter-spacing:.02em;color:var(--c-ink-100)}
+.brand .wm i{font-style:normal;color:var(--c-cobalt)}
+.navsec{padding:14px 0 6px}
+.navsec>.lbl{padding:0 14px 7px}
+.nav a{display:flex;align-items:center;gap:10px;padding:0 14px;height:31px;color:var(--c-ink-60);
+       text-decoration:none;font-size:var(--t-body);border-left:2px solid transparent}
+.nav a:hover{color:var(--c-ink-100);background:var(--c-surface-2)}
+.nav a[aria-current="page"]{color:var(--c-ink-100);background:var(--c-surface-2);border-left-color:var(--c-cobalt)}
+.nav a .gl{width:13px;height:13px;flex:0 0 13px;opacity:.85}
+.nav a .ct{margin-left:auto;font-family:var(--f-mono);font-size:10px;color:var(--c-ink-45)}
+.railfoot{margin-top:auto;border-top:1px solid var(--c-line);padding:11px 14px}
+
+/* --- top bar: command surface --- */
+.main{display:flex;flex-direction:column;min-width:0}
+.topbar{height:var(--bar-h);border-bottom:1px solid var(--c-line);background:var(--c-surface);
+        display:flex;align-items:center;gap:12px;padding:0 14px;flex:0 0 auto}
+.cmd{flex:1;max-width:520px;display:flex;align-items:center;gap:9px;height:30px;padding:0 11px;
+     background:var(--c-ground);border:1px solid var(--c-line);border-radius:var(--radius);
+     color:var(--c-ink-45);font-size:12.5px;cursor:text}
+.cmd kbd{margin-left:auto;font-family:var(--f-mono);font-size:9.5px;border:1px solid var(--c-line);
+         border-radius:2px;padding:1px 4px;color:var(--c-ink-30)}
+.tb-actions{margin-left:auto;display:flex;gap:6px;align-items:center}
+.btn{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+     background:var(--c-surface-2);color:var(--c-ink-60);border:1px solid var(--c-line);
+     border-radius:var(--radius);padding:5px 9px;cursor:pointer}
+.btn:hover{color:var(--c-ink-100)}
+.btn[aria-pressed="true"]{background:var(--c-cobalt);border-color:var(--c-cobalt);color:#fff}
+.btn:focus-visible{outline:2px solid var(--c-cobalt-ui);outline-offset:1px}
+
+/* --- scope bar --- */
+.scope{height:var(--scope-h);border-bottom:1px solid var(--c-line);background:var(--c-surface-2);
+       display:flex;align-items:center;gap:8px;padding:0 14px;font-family:var(--f-mono);
+       font-size:var(--t-data);color:var(--c-ink-60);flex:0 0 auto;overflow-x:auto;white-space:nowrap}
+.scope .sep{color:var(--c-ink-20)}
+.scope .cur{color:var(--c-ink-100)}
+.scope .asof{margin-left:auto;color:var(--c-ink-45);font-size:10.5px;padding-left:16px}
+
+/* --- content --- */
+.content{padding:16px;overflow:auto;flex:1;background:var(--c-ground)}
+.panelgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.panelgrid[hidden]{display:none}
+.panel{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);
+       display:flex;flex-direction:column;min-width:0}
+.panel>header{display:flex;align-items:center;gap:9px;padding:10px var(--panel-pad);
+              border-bottom:1px solid var(--c-line-soft)}
+.panel>header h3{margin:0;font-family:var(--f-display);font-size:13px;font-weight:600;color:var(--c-ink-100)}
+.panel>header .lbl{margin-left:auto}
+.panel .pbody{padding:var(--panel-pad)}
+.span-4{grid-column:span 4} .span-5{grid-column:span 5} .span-6{grid-column:span 6}
+.span-7{grid-column:span 7} .span-8{grid-column:span 8} .span-12{grid-column:span 12}
+
+/* ===================== STATE COMPONENTS ===================== */
+/* Epistemic: luminance carries strength. No hue except attention states. */
+[data-axis="epistemic"] .v{font-family:var(--f-mono);font-size:var(--t-data);letter-spacing:.04em}
+[data-axis="epistemic"][data-status="KNOWN"] .v{color:var(--e-known)}
+[data-axis="epistemic"][data-status="SUPPORTED"] .v{color:var(--e-supported)}
+[data-axis="epistemic"][data-status="PARTIALLY_SUPPORTED"] .v{color:var(--e-partially-supported)}
+[data-axis="epistemic"][data-status="INFERRED"] .v{color:var(--e-inferred)}
+[data-axis="epistemic"][data-status="CONFLICTED"] .v{color:var(--e-conflicted)}
+[data-axis="epistemic"][data-status="STALE"] .v{color:var(--e-stale)}
+[data-axis="epistemic"][data-status="UNKNOWN"] .v{color:var(--e-unknown)}
+[data-axis="epistemic"][data-status="UNVERIFIABLE"] .v{color:var(--e-unverifiable)}
+
+
+/* ---------------------------------------------------------------------------
+   REDUNDANT ENCODING - required, not optional.
+   Apple HIG, Accessibility: "Perceivable. Your interface doesn't rely on any
+   single method to convey information." and "Convey information with more
+   than color alone ... offer visual indicators, like distinct shapes or icons".
+   Luminance alone is colour alone by another name. Measured: inside the legible
+   band (4.5:1 floor to 15:1 ceiling) eight ordinal values separate by only
+   ~1.3:1 per rung, which no low-vision reader, projector or sunlit screen can
+   resolve. So the MARK carries the ordinal value and luminance carries
+   emphasis. The mark is a fill gauge: how much of this claim is established.
+--------------------------------------------------------------------------- */
+[data-axis="epistemic"] .v::before{
+  content:"";display:inline-block;width:9px;height:9px;margin-right:7px;
+  vertical-align:0;border:1px solid currentColor;box-sizing:border-box}
+[data-axis="epistemic"][data-status="KNOWN"] .v::before{background:currentColor}
+[data-axis="epistemic"][data-status="SUPPORTED"] .v::before{
+  background:linear-gradient(to top,currentColor 0 66%,transparent 66%)}
+[data-axis="epistemic"][data-status="PARTIALLY_SUPPORTED"] .v::before{
+  background:linear-gradient(to top,currentColor 0 33%,transparent 33%)}
+[data-axis="epistemic"][data-status="INFERRED"] .v::before{border-style:dashed}
+[data-axis="epistemic"][data-status="CONFLICTED"] .v::before{
+  background:linear-gradient(135deg,currentColor 0 50%,transparent 50%)}
+[data-axis="epistemic"][data-status="STALE"] .v::before{
+  background:linear-gradient(to bottom,transparent 0 38%,currentColor 38% 62%,transparent 62%)}
+[data-axis="epistemic"][data-status="UNKNOWN"] .v::before{background:none}
+[data-axis="epistemic"][data-status="UNVERIFIABLE"] .v::before{
+  background:linear-gradient(135deg,transparent 0 42%,currentColor 42% 58%,transparent 58%),
+             linear-gradient(45deg,transparent 0 42%,currentColor 42% 58%,transparent 58%)}
+
+/* Apple HIG: "If your app doesn't provide this minimum contrast by default,
+   ensure it at least provides a higher contrast color scheme when the system
+   setting Increase Contrast is turned on." */
+@media (prefers-contrast: more){
+  :root,[data-surface]{
+    --e-inferred:var(--c-ink-100); --e-unknown:var(--c-ink-100);
+    --e-unverifiable:var(--c-ink-100); --e-partially-supported:var(--c-ink-100);
+    --e-supported:var(--c-ink-100); --c-line:var(--c-ink-45)}
+  [data-axis="epistemic"] .v::before{border-width:2px}
+}
+.chip{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap}
+.chip .asof{font-family:var(--f-mono);font-size:10px;color:var(--c-ink-30)}
+
+/* Authority &#8212; bracketed, letterspaced, uppercase. Never shares a treatment
+   with capability. Art. 26.4: credentials are not authority.              */
+.auth{display:inline-flex;align-items:center;font-family:var(--f-mono);font-size:var(--t-data);
+      letter-spacing:.1em;color:var(--c-ink-80);border-left:2px solid var(--c-ink-45);padding:1px 0 1px 7px}
+.auth[data-status="ACTIVE"]{color:var(--c-ink-100);border-left-color:var(--c-ink-100)}
+.auth[data-status="PENDING_VALIDITY"]{color:var(--c-ink-60);border-left-color:var(--c-ink-45);border-left-style:dotted}
+.auth[data-status="SUSPENDED"],.auth[data-status="EXPIRED"]{color:var(--c-amber);border-left-color:var(--c-amber)}
+.auth[data-status="REVOKED"]{color:var(--c-signal);border-left-color:var(--c-signal)}
+.auth[data-status="SUPERSEDED"]{color:var(--c-ink-45);border-left-color:var(--c-ink-30)}
+.auth .ref{color:var(--c-ink-30);margin-left:7px;letter-spacing:0}
+
+/* Capability &#8212; bounded token. Dashed enclosure, shows its bounds. Shape and
+   border style differ from authority so the two can never be confused.     */
+.cap{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:11px;
+     color:var(--c-ink-60);border:1px dashed var(--c-ink-20);border-radius:9px;padding:2px 9px;background:transparent}
+.cap b{font-weight:500;color:var(--c-ink-80)}
+.cap .bound{color:var(--c-ink-30)}
+
+/* Evidence reference */
+.ev{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);font-size:11px;
+    color:var(--c-ink-60);border-bottom:1px dotted var(--c-ink-30);cursor:help}
+.ev::before{content:"";width:4px;height:9px;background:var(--c-ink-45);display:inline-block}
+.ev.adverse::before{background:var(--c-amber)}
+.ev.missing{color:var(--c-ink-30)} .ev.missing::before{background:transparent;border:1px solid var(--c-ink-30)}
+
+/* Attempt / disposition / stage */
+.att{font-family:var(--f-mono);font-size:var(--t-data);color:var(--c-ink-60);letter-spacing:.04em}
+.att[data-terminal="true"]{color:var(--c-ink-80)}
+.att[data-status="BLOCKED"],.att[data-status="FAILED"]{color:var(--c-signal)}
+.att[data-status="HELD"],.att[data-status="RECONCILIATION_REQUIRED"],.att[data-status="ABORT_REQUESTED"]{color:var(--c-amber)}
+.disp{font-family:var(--f-mono);font-size:var(--t-data);color:var(--c-ink-100);letter-spacing:.06em;
+      border:1px solid var(--c-ink-30);border-radius:var(--radius);padding:1px 7px}
+.disp::before{content:"HUMAN ";color:var(--c-ink-45);font-size:9px;letter-spacing:.12em}
+
+.stage{display:flex;align-items:center;gap:0;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;overflow-x:auto;max-width:100%}
+.stage span{flex:0 0 auto}
+.stage span{padding:3px 9px;border:1px solid var(--c-line);border-right:0;color:var(--c-ink-30);background:var(--c-surface-2)}
+.stage span:last-child{border-right:1px solid var(--c-line)}
+.stage span[data-reached="true"]{color:var(--c-ink-80);background:var(--c-surface-3)}
+.stage span[data-current="true"]{color:var(--c-ink-100);border-color:var(--c-ink-45);background:var(--c-surface-3)}
+
+/* Hold / block banner &#8212; must preserve WHICH kind of hold */
+.halt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--c-amber);
+      border-left-width:2px;border-radius:var(--radius);padding:11px 13px;background:var(--c-surface-2)}
+.halt.block{border-color:var(--c-signal)}
+.halt .k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+         color:var(--c-amber);white-space:nowrap;padding-top:2px}
+.halt.block .k{color:var(--c-signal)}
+.halt .m{font-size:12.5px;color:var(--c-ink-80)}
+.halt .m em{color:var(--c-ink-100);font-style:normal}
+
+/* Table */
+table.st{width:100%;border-collapse:collapse}
+table.st th{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+            color:var(--c-ink-45);font-weight:500;text-align:left;padding:0 10px 7px;border-bottom:1px solid var(--c-line)}
+table.st td{padding:var(--cell-y,8px) 10px;border-bottom:1px solid var(--c-line-soft);height:var(--row-h);
+            font-size:var(--t-body);color:var(--c-ink-60);vertical-align:middle}
+table.st tr:last-child td{border-bottom:0}
+table.st td.name{color:var(--c-ink-100);font-family:var(--f-mono);font-size:var(--t-data)}
+table.st tr:hover td{background:var(--c-surface-2)}
+
+/* Graph node treatment */
+.gnode{display:inline-flex;flex-direction:column;gap:3px;border:1px solid var(--c-line);
+       border-radius:var(--radius);padding:8px 11px;background:var(--c-surface-2);min-width:132px}
+.gnode .gt{font-family:var(--f-mono);font-size:11px;color:var(--c-ink-100)}
+.gnode .gk{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--c-ink-45)}
+.gnode[data-status="INFERRED"],.gnode[data-status="UNKNOWN"]{border-style:dashed}
+
+/* Empty states &#8212; designed first, not last */
+.empty{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:26px 0}
+.empty .et{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--c-ink-60)}
+.empty .ed{font-size:12.5px;color:var(--c-ink-45);max-width:52ch}
+
+/* gallery scaffolding */
+.rowlist{display:flex;flex-direction:column;gap:9px}
+.specrow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;align-items:center;
+         padding:7px 0;border-bottom:1px solid var(--c-line-soft)}
+.specrow:last-child{border-bottom:0}
+.specrow>.lbl{font-size:9.5px}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--c-line);margin-bottom:14px}
+.tabs button{background:transparent;border:0;border-bottom:2px solid transparent;color:var(--c-ink-45);
+             font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+             padding:7px 11px;cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--c-ink-100);border-bottom-color:var(--c-cobalt)}
+.tabs button:focus-visible{outline:2px solid var(--c-cobalt-ui);outline-offset:-2px}
+
+/* page chrome around the demo */
+.page{max-width:1320px;margin:0 auto;padding:30px 24px 60px}
+.pagehead{margin-bottom:20px}
+.pagehead h1{font-family:var(--f-display);font-size:clamp(28px,3.6vw,42px);font-weight:700;
+             letter-spacing:-.02em;color:var(--c-ink-100);margin:0 0 8px}
+.pagehead p{margin:0;max-width:70ch;color:var(--c-ink-60);font-size:15px;line-height:1.55}
+.note{margin-top:18px;border:1px solid var(--c-line);border-left:2px solid var(--c-cobalt);
+      border-radius:var(--radius);padding:14px 16px;background:var(--c-surface);font-size:13px;color:var(--c-ink-60)}
+.note b{color:var(--c-ink-100);font-weight:600}
+@media (max-width:1080px){ .app{grid-template-columns:1fr} .rail{display:none} .span-4,.span-5,.span-6,.span-7,.span-8{grid-column:span 12} }

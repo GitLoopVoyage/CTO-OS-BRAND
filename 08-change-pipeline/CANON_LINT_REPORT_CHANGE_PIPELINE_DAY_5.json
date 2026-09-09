@@ -1,0 +1,38 @@
+{
+ "tool": "canon-lint",
+ "generated": "2026-09-09T19:39:34.094Z",
+ "ruleset": {
+  "canon-lint.js": {
+   "sha256": "ce172f94626c169824ea9a1209022ed936c58c0500aeab54391c1d41e5966a57",
+   "bytes": 20691
+  },
+  "canon-vocabulary.json": {
+   "sha256": "e18e14c3628c17be1327ac1db30b10b48f097afa9bcccd8e3c0203f36eacb632",
+   "bytes": 3295,
+   "source": "CTO_OS_VISUAL_CANON_MODEL_EXTRACT_V0.1_20260903.md"
+  }
+ },
+ "files": [
+  {
+   "file": "change-pipeline.html",
+   "sha256": "f927cce6b41fe5e4cba63ac95c0324f0fcaef58ebd573a37bcf817eee3e0c58e",
+   "bytes": 36763,
+   "errors": 0,
+   "warns": 0,
+   "findings": [
+    {
+     "rule": "R4-assurance-needs-evidence",
+     "sev": "INFO",
+     "msg": "Renders \"ASSURED\" with no data-evidence reference in scope. (appears in an explanatory or prohibitive sentence)",
+     "where": "span.lbl \"Why ASSURED cannot be claimed\"",
+     "detail": "extract section 6: never render ASSURED / VERIFIED / PROVEN solely because evidence is SUPPLIED or REVIEWED"
+    }
+   ],
+   "distribution": {
+    "total": 2,
+    "settled": 1,
+    "unsettled": 1
+   }
+  }
+ ]
+}
