@@ -1,0 +1,202 @@
+{
+ "tool": "canon-lint",
+ "gate": "CTO_OS_VISUAL_CANON_V0.1 Day 5 all-artifact gate",
+ "tree": "scratch merge of main@b16d59f3 + canon/day-4-command-center@51bfc0c + canon/day-5-change-pipeline@7fc2d85 (merge commit b924caa, not pushed, not a candidate)",
+ "scope_note": "Canon surfaces (01 motion, 02 shell, 03 command center, 04 pipeline) and the pulse demo are the gate. week-one.html is the Day 0 programme plan; it was never claimed as a lint target and is reported here without exemption.",
+ "ruleset": {
+  "canon-lint.js": {
+   "sha256": "ce172f94626c169824ea9a1209022ed936c58c0500aeab54391c1d41e5966a57",
+   "bytes": 20691
+  },
+  "canon-vocabulary.json": {
+   "sha256": "e18e14c3628c17be1327ac1db30b10b48f097afa9bcccd8e3c0203f36eacb632",
+   "bytes": 3295,
+   "source": "CTO_OS_VISUAL_CANON_MODEL_EXTRACT_V0.1_20260903.md"
+  }
+ },
+ "files": [
+  {
+   "file": "change-pipeline.html",
+   "sha256": "f927cce6b41fe5e4cba63ac95c0324f0fcaef58ebd573a37bcf817eee3e0c58e",
+   "bytes": 36763,
+   "errors": 0,
+   "warns": 0,
+   "findings": [
+    {
+     "rule": "R4-assurance-needs-evidence",
+     "sev": "INFO",
+     "msg": "Renders \"ASSURED\" with no data-evidence reference in scope. (appears in an explanatory or prohibitive sentence)",
+     "where": "span.lbl \"Why ASSURED cannot be claimed\"",
+     "detail": "extract section 6: never render ASSURED / VERIFIED / PROVEN solely because evidence is SUPPLIED or REVIEWED"
+    }
+   ],
+   "distribution": {
+    "total": 2,
+    "settled": 1,
+    "unsettled": 1
+   }
+  },
+  {
+   "file": "command-center.html",
+   "sha256": "fd7958c3b4e7714f1e5c4dc73e0647942e18ecfb8c40d64a8f562bfd3981cfb5",
+   "bytes": 23633,
+   "errors": 0,
+   "warns": 0,
+   "findings": [],
+   "distribution": {
+    "total": 6,
+    "settled": 1,
+    "unsettled": 5
+   }
+  },
+  {
+   "file": "demo.html",
+   "sha256": "b850347c61e6370af0150caca22a1e12c2ff1486ad658dc259f9e51dcff6889b",
+   "bytes": 1189,
+   "errors": 0,
+   "warns": 0,
+   "findings": [],
+   "distribution": null
+  },
+  {
+   "file": "fractal-pulse.html",
+   "sha256": "d3b6f8effb4314debe6d32055c4d148206de68641e33084287253f95e0d091b4",
+   "bytes": 49226,
+   "errors": 0,
+   "warns": 2,
+   "findings": [
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Hold\" with no data-axis.",
+     "where": "div.state-name \"Hold\"",
+     "detail": "value exists on axis: aer-decision/disposition. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Complete\" with no data-axis.",
+     "where": "div.state-name \"Complete\"",
+     "detail": "value exists on axis: effect-extent. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    }
+   ],
+   "distribution": {
+    "total": 2,
+    "settled": 0,
+    "unsettled": 2
+   }
+  },
+  {
+   "file": "product-shell.html",
+   "sha256": "1e54c7fa2616c5c6441660cbb7e7652505b4ef65b4552db56f034e141f62aa94",
+   "bytes": 46536,
+   "errors": 0,
+   "warns": 5,
+   "findings": [
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Supplied\" with no data-axis.",
+     "where": "span.lbl \"Supplied\"",
+     "detail": "value exists on axis: evidence-presence. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Unreviewed\" with no data-axis.",
+     "where": "span.lbl \"Unreviewed\"",
+     "detail": "value exists on axis: evidence-review. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"Missing\" with no data-axis.",
+     "where": "span.lbl \"Missing\"",
+     "detail": "value exists on axis: evidence-presence. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"UNKNOWN\" with no data-axis.",
+     "where": "span.mono \"UNKNOWN\"",
+     "detail": "value exists on axis: epistemic/effect-certainty. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "WARN",
+     "msg": "Renders the formal state value \"SUPPORTED\" with no data-axis.",
+     "where": "span.mono \"SUPPORTED\"",
+     "detail": "value exists on axis: epistemic. Downgraded: inside a declared component-documentation scope, so this is a component name, not a state claim. The collision with formal vocabulary is still worth knowing about."
+    },
+    {
+     "rule": "R4-assurance-needs-evidence",
+     "sev": "INFO",
+     "msg": "Renders \"ASSURED\" with no data-evidence reference in scope. (appears in an explanatory or prohibitive sentence)",
+     "where": "span \"Stages are product labels. They carry no forma\"",
+     "detail": "extract section 6: never render ASSURED / VERIFIED / PROVEN solely because evidence is SUPPLIED or REVIEWED"
+    }
+   ],
+   "distribution": {
+    "total": 21,
+    "settled": 5,
+    "unsettled": 16
+   }
+  },
+  {
+   "file": "week-one.html",
+   "sha256": "d8a12d2ee66476cb4e549a24ae11ebe33be35ef4383164995cb803b852589eed",
+   "bytes": 30644,
+   "errors": 6,
+   "warns": 0,
+   "findings": [
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "ERROR",
+     "msg": "Renders the formal state value \"UNKNOWN\" with no data-axis.",
+     "where": "span.mono \"UNKNOWN\"",
+     "detail": "value exists on axis: epistemic/effect-certainty. Extract section 0: the UI may summarise axes but may not substitute one for another, and a value with no axis is unreadable as either."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "ERROR",
+     "msg": "Renders the formal state value \"Hold\" with no data-axis.",
+     "where": "span.mono \"Hold\"",
+     "detail": "value exists on axis: aer-decision/disposition. Extract section 0: the UI may summarise axes but may not substitute one for another, and a value with no axis is unreadable as either."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "ERROR",
+     "msg": "Renders the formal state value \"Complete\" with no data-axis.",
+     "where": "span.mono \"Complete\"",
+     "detail": "value exists on axis: effect-extent. Extract section 0: the UI may summarise axes but may not substitute one for another, and a value with no axis is unreadable as either."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "ERROR",
+     "msg": "Renders the formal state value \"UNKNOWN\" with no data-axis.",
+     "where": "span.mono \"UNKNOWN\"",
+     "detail": "value exists on axis: epistemic/effect-certainty. Extract section 0: the UI may summarise axes but may not substitute one for another, and a value with no axis is unreadable as either."
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "ERROR",
+     "msg": "Reads as a state claim (\"Evidence Graph \u2014 signature visual\" -> \"C \u00b7 System\") but declares no data-axis, no data-status and no data-asof.",
+     "where": "td.c \"C \u00b7 System\"",
+     "detail": "extract section 10: CURRENT CLAIM + AS-OF + EPISTEMIC STATE + SOURCE/EVIDENCE REF WHERE MATERIAL"
+    },
+    {
+     "rule": "R0-undeclared-claim",
+     "sev": "ERROR",
+     "msg": "Reads as a state claim (\"Authority Graph\" -> \"C \u00b7 System\") but declares no data-axis, no data-status and no data-asof.",
+     "where": "td.c \"C \u00b7 System\"",
+     "detail": "extract section 10: CURRENT CLAIM + AS-OF + EPISTEMIC STATE + SOURCE/EVIDENCE REF WHERE MATERIAL"
+    }
+   ],
+   "distribution": null
+  }
+ ],
+ "verdict": {
+  "surfaces_pass": true,
+  "week_one_errors": 6
+ }
+}
