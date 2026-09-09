@@ -1,0 +1,362 @@
+<title>Visual Canon Week One</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#EDF0F4; --surface:#FFFFFF; --surface-2:#E4E9EF; --line:#D2D9E2; --line-soft:#E6EAF0;
+  --ink-hi:#10151B; --ink:#3B4552; --ink-dim:#6C7683;
+  --cobalt:#2563EB; --cobalt-ui:#1D4FD7; --red:#C7343A; --amber:#8A6A16; --ok:#1E7A57;
+  --spec-dark:#0B0D10;
+  --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'IBM Plex Mono','DejaVu Sans Mono',monospace;
+  --rail:196px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C0E12; --surface:#13171C; --surface-2:#191E25; --line:#242B34; --line-soft:#1B212A;
+    --ink-hi:#EDF0F3; --ink:#B2BCC7; --ink-dim:#79838F;
+    --cobalt-ui:#5B93FF; --red:#E5484D; --amber:#D8A233; --ok:#3FB68B;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C0E12; --surface:#13171C; --surface-2:#191E25; --line:#242B34; --line-soft:#1B212A;
+  --ink-hi:#EDF0F3; --ink:#B2BCC7; --ink-dim:#79838F;
+  --cobalt-ui:#5B93FF; --red:#E5484D; --amber:#D8A233; --ok:#3FB68B;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:var(--f-display);color:var(--ink-hi);text-wrap:balance;margin:0}
+h1{font-size:clamp(38px,5.5vw,62px);font-weight:700;letter-spacing:-.022em;line-height:1.03}
+h2{font-size:23px;font-weight:600;letter-spacing:-.012em;line-height:1.2}
+p{margin:0 0 14px}
+a{color:var(--cobalt-ui)}
+.eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);margin:0 0 10px}
+.lede{font-size:18px;line-height:1.55;color:var(--ink);max-width:64ch}
+.mono{font-family:var(--f-mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+code{font-family:var(--f-mono);font-size:.88em;background:var(--surface-2);padding:.12em .38em;border-radius:2px}
+
+.hero{border-bottom:1px solid var(--line);background:var(--surface)}
+.hero-in{padding:74px 0 60px}
+.factbar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:2px;margin-top:34px;overflow:hidden}
+.fact{background:var(--surface);padding:16px 18px}
+.fact dt{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin:0 0 6px}
+.fact dd{margin:0;font-family:var(--f-display);font-size:15px;font-weight:600;color:var(--ink-hi);line-height:1.3}
+
+section{padding:64px 0;border-bottom:1px solid var(--line-soft)}
+.sec{display:grid;grid-template-columns:var(--rail) 1fr;gap:52px;align-items:start}
+.sec>*{min-width:0}
+.route>*,.two>*,.body>*{min-width:0}
+.rail{position:sticky;top:26px}
+.rail .note{font-size:13px;line-height:1.5;color:var(--ink-dim);margin-top:12px}
+.body>*+*{margin-top:24px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+.card{border:1px solid var(--line);background:var(--surface);border-radius:2px;padding:20px 22px}
+.card.accent{border-left:2px solid var(--cobalt)}
+.card.warn{border-left:2px solid var(--red)}
+.cardhead{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px}
+
+/* day cards */
+.days{display:flex;flex-direction:column;gap:12px}
+.day{display:grid;grid-template-columns:74px 1fr;border:1px solid var(--line);background:var(--surface);border-radius:2px;overflow:hidden}
+.daynum{background:var(--surface-2);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:18px 6px}
+.daynum b{font-family:var(--f-display);font-size:26px;font-weight:700;color:var(--ink-hi);line-height:1}
+.daynum span{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+.daybody{padding:16px 20px 18px}
+.daytitle{font-family:var(--f-display);font-size:16px;font-weight:600;color:var(--ink-hi);margin-bottom:3px}
+.daysub{font-size:13px;color:var(--ink-dim);margin-bottom:12px}
+.dayrow{display:grid;grid-template-columns:76px 1fr;gap:12px;padding:7px 0;border-top:1px solid var(--line-soft);font-size:13.5px}
+.dayrow b{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim);font-weight:500;padding-top:3px}
+.gate{color:var(--ink-hi);font-weight:500}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:2px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:540px}
+th,td{text-align:left;padding:10px 15px;border-bottom:1px solid var(--line-soft);font-size:13px;vertical-align:top}
+th{font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim);font-weight:500;background:var(--surface-2)}
+td.k{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-hi);white-space:nowrap}
+td.c{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-dim);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;border:1px solid;white-space:nowrap}
+.p-done{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 45%,transparent);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.p-week{color:var(--cobalt-ui);border-color:color-mix(in srgb,var(--cobalt-ui) 50%,transparent);background:color-mix(in srgb,var(--cobalt-ui) 12%,transparent)}
+.p-q{color:var(--ink-dim);border-color:var(--line)}
+.p-block{color:var(--amber);border-color:color-mix(in srgb,var(--amber) 45%,transparent);background:color-mix(in srgb,var(--amber) 12%,transparent)}
+
+pre{background:var(--spec-dark);color:#C9D2DC;border:1px solid var(--line);border-radius:2px;padding:16px 18px;overflow-x:auto;font-family:var(--f-mono);font-size:11.5px;line-height:1.6;margin:0}
+pre .c{color:#66707C} pre .s{color:#8FB8FF} pre .r{color:#F0898D}
+ul{margin:0;padding-left:18px} li{margin-bottom:6px}
+footer{padding:40px 0 56px;color:var(--ink-dim);font-size:13px}
+
+@media (max-width:900px){
+  .sec{grid-template-columns:1fr;gap:22px}
+  .rail{position:static}
+  .two{grid-template-columns:1fr}
+  .factbar{grid-template-columns:repeat(2,1fr)}
+  .day{grid-template-columns:56px 1fr}
+  .dayrow{grid-template-columns:1fr;gap:2px}
+}
+</style>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <p class="eyebrow">CTO_OS_VISUAL_CANON_V0.1 &#183; Phase B</p>
+    <h1>Visual Canon Week One</h1>
+    <p class="lede" style="margin-top:18px">Five days that produce the substrate, not the gallery. The Product Shell is what every remaining artifact in the canon is drawn on &#8212; getting it wrong forces a rebuild of fourteen things downstream. So the week buys one shell, one screen, one pipeline, and the machine check that keeps all three honest.</p>
+    <dl class="factbar">
+      <div class="fact"><dt>Forcing function</dt><dd>Investor / design-partner demo</dd></div>
+      <div class="fact"><dt>Shape</dt><dd>Depth over coverage</dd></div>
+      <div class="fact"><dt>Ships</dt><dd>02 &#183; 03 &#183; 04 &#183; Canon Lint</dd></div>
+      <div class="fact"><dt>Progress</dt><dd>Day 0 &#43; Day 1 shipped</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section>
+  <div class="wrap sec">
+    <div class="rail">
+      <p class="eyebrow">The central tension</p>
+      <h2>An honest board is the better demo</h2>
+      <p class="note">This is the design problem of the week. Every other decision falls out of how it is resolved.</p>
+    </div>
+    <div class="body">
+      <div class="card accent">
+        <div class="cardhead">The controlling distinction &#8212; extract section 0</div>
+        <p style="margin:0 0 8px">Above every other rule: the visual system may summarise semantic axes but may not substitute one for another.</p>
+        <pre style="font-size:11px;padding:12px 14px">AuthorityState  <span class="r">&#8800;</span>  AttemptState  <span class="r">&#8800;</span>  ExecutionEffect
+Authority  <span class="r">&#8800;</span>  Evidence  <span class="r">&#8800;</span>  Recommendation  <span class="r">&#8800;</span>  Disposition
+PreAuthorization  <span class="r">&#8800;</span>  PostEvidenceDisposition
+Admissible <span class="r">&#8800;</span> LocallyExecutable <span class="r">&#8800;</span> ExecutionReserved <span class="r">&#8800;</span> ExecutionEffect
+External execution claim  <span class="r">&#8800;</span>  execution proof
+Execution proof  <span class="r">&#8800;</span>  authority
+Successful execution  <span class="r">&#8800;</span>  retroactive authorization</pre>
+      </div>
+      <p>A demo wants a Command Center that looks alive: populated, confident, green. Your rule forbids exactly that &#8212; no visual may imply more authority, certainty, verification, safety or runtime state than the model establishes. These pull in opposite directions and the week has to pick one.</p>
+      <p><strong>Pick the rule.</strong> The audience is technical buyers who have been shown all-green dashboards before and know what they are worth. A board that says <span class="mono">STALE &#183; last proof 14 d</span> next to <span class="mono">UNVERIFIABLE &#183; no runtime attestation</span> is doing something no competitor's demo does: telling the truth about what it cannot see. That is the product thesis rendered as a screen. An all-green board is evidence only that it is a mockup.</p>
+      <div class="two">
+        <div class="card accent">
+          <div class="cardhead">Design consequence</div>
+          <p style="margin:0">Every component gets its <span class="mono">UNKNOWN</span> variant designed <em>first</em>, not as an afterthought state. If the unknown variant looks broken or apologetic, the component is wrong. Uncertainty must look deliberate and engineered, because in this product it is the honest answer, not a failure.</p>
+        </div>
+        <div class="card warn">
+          <div class="cardhead">Demo-data rule</div>
+          <p style="margin:0">The reference tenant must be self-evidently synthetic &#8212; an invented company, invented services, invented incidents. No screenshot of the demo may be mistakable for a real organisation's real posture. Fabricated data presented as genuine is the same defect class the product exists to prevent.</p>
+        </div>
+      </div>
+      <div class="card warn">
+        <div class="cardhead">Corrected by the model extract</div>
+        <p style="margin:0">An earlier draft of this plan set a target of &#8220;roughly a third of the board not settled green.&#8221; That is withdrawn. A distribution target is itself a form of fabrication &#8212; it makes the picture argue for a conclusion the fixture did not produce. <strong>The fixture truth determines the distribution.</strong> It is a demo design heuristic when composing the fixture, never a lint rule and never a data quota.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap sec">
+    <div class="rail">
+      <p class="eyebrow">The gate</p>
+      <h2>Canon Lint</h2>
+      <p class="note">Your rule, written as executable checks rather than a paragraph everyone agrees with and then forgets.</p>
+    </div>
+    <div class="body">
+      <p><strong>Shipped Day 1.</strong> <span class="mono">canon-lint.js</span> loads a built artifact in a real browser and checks it against <em>computed</em> styles, not source classes &#8212; so &#8220;visually distinct&#8221; and &#8220;not styled as an error&#8221; are measured rather than asserted. State vocabularies live in <span class="mono">canon-vocabulary.json</span>, transcribed from the model extract; the linter reads them at run time and hardcodes nothing.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Rule</th><th>Mechanical check</th><th>Sev</th></tr></thead>
+          <tbody>
+            <tr><td class="k">R0 undeclared claim</td><td>Text that reads as a state claim &#8212; a formal value standing alone, or an axis label followed by a value &#8212; with no <span class="mono">data-axis</span>. The rule that catches what the others cannot see.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R1 axis declared</td><td>Every claim declares one of eleven semantic axes: epistemic, authority, attempt, aer-decision, boundary, disposition, evidence-presence, evidence-review, effect-extent, effect-certainty, pipeline-stage.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R2 epistemic vocabulary</td><td>Epistemic values are exactly the <strong>eight</strong>: KNOWN, SUPPORTED, PARTIALLY_SUPPORTED, INFERRED, CONFLICTED, STALE, UNKNOWN, UNVERIFIABLE.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R3 exact vocabulary</td><td>Formal axes use only their own state names. A value belonging to another axis is reported as axis collapse, naming both axes.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R4 assurance needs evidence</td><td>ASSURED / VERIFIED / PROVEN require a <span class="mono">data-evidence</span> reference that resolves to a real evidence node. Dangling reference fails.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R5 runtime as-of</td><td>RUNTIME and execution-effect claims require <span class="mono">data-asof</span>; RUNTIME also requires an observation reference.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R6 no stage masquerade</td><td>Pipeline stages may not carry <span class="mono">data-formal-state</span>. Load-bearing stages must expose the axis beneath: AUTHORIZED an authority record, ASSURED an assurance reference, RUNTIME an observation, CLOSED a closure basis.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R7 authority is not access</td><td>Computed treatment of authority elements compared against capability/access elements. Identical signature fails.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R8 uncertainty is not error</td><td>UNKNOWN, UNVERIFIABLE, STALE, PARTIALLY_SUPPORTED, INFERRED measured against the signal colour. Too close fails.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R9 fixture synthetic</td><td>Any page using fixture data declares <span class="mono">synthetic</span> at a root covering every fixture node.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">R10 as-of</td><td>Claims on time-sensitive axes carry <span class="mono">data-asof</span>.</td><td class="c">WARN</td></tr>
+            <tr><td class="k">Absolutes</td><td>Text scan for unbound absolute claims. Prohibitive and quoted contexts downgrade to INFO.</td><td class="c">ERROR</td></tr>
+            <tr><td class="k">Colour discipline</td><td>Computed cobalt outside a declared role. Roles: core, wordmark-os, interactive-primary, interactive-focus, specimen.</td><td class="c">WARN</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card warn">
+        <div class="cardhead">Rule 10 of the extract &#8212; implemented as an absence</div>
+        <p style="margin:0">No distribution rule exists in the linter and none may be added. The observed settled/unsettled split is printed as <span class="mono">NON-NORMATIVE</span> information and can never fail a build. A linter that enforced a quota of doubt would be manufacturing the same false picture as one that enforced a quota of green.</p>
+      </div>
+      <div class="card accent">
+        <div class="cardhead">First run &#8212; the gate held</div>
+        <p style="margin:0 0 10px">Run against the published Fractal Pulse page, which we had already vetted by hand twice. It failed, with ten errors. The most serious was mine:</p>
+        <pre style="font-size:11px;padding:12px 14px"><span class="c">// full-screen thinking state, as shipped</span>
+AUTHORITY   <span class="r">Pending</span>
+ASSURANCE   <span class="r">Not yet required</span>
+
+<span class="c">// PENDING is a value on the evidence-presence axis.</span>
+<span class="c">// The AuthorityState value is PENDING_VALIDITY.</span>
+<span class="c">// This is exactly the axis collapse extract section 0 forbids.</span></pre>
+        <p style="margin:10px 0 0">Corrected rather than silenced: the panel now carries exact vocabulary, an as-of on every row, a resolvable evidence reference, and a synthetic-fixture declaration. It is the canon's first compliant surface. Two warnings remain and stay visible &#8212; the loader variants named <span class="mono">Hold</span> and <span class="mono">Complete</span> collide with formal vocabulary on other axes. Scoped as component documentation, not silenced, because the collision is worth knowing about.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap sec">
+    <div class="rail">
+      <p class="eyebrow">Sequence</p>
+      <h2>The week</h2>
+      <p class="note">Dependency order, not preference order. Each day's gate must hold before the next begins.</p>
+    </div>
+    <div class="body">
+      <div class="days">
+
+        <div class="day">
+          <div class="daynum" style="background:color-mix(in srgb,var(--ok) 12%,transparent)"><b>0</b><span style="color:var(--ok)">Shipped</span></div>
+          <div class="daybody">
+            <div class="daytitle">Model extract</div>
+            <div class="daysub">Delivered as <span class="mono">CTO_OS_VISUAL_CANON_MODEL_EXTRACT_V0.1</span>. Eleven axes, eight epistemic values, an explicit do-not-invent list.</div>
+            <div class="dayrow"><b>Work</b><span>Read the doctrine docs. Produce a one-page extract: entity types, canonical state names, legal transitions, the eight epistemic values, and an explicit list of what the docs do <em>not</em> establish.</span></div>
+            <div class="dayrow"><b>Ships</b><span><span class="mono">model-extract.md</span> &#8212; every state name the canon is allowed to render, and the gaps.</span></div>
+            <div class="dayrow"><b>Gate</b><span class="gate">Held. Vocabularies now live in canon-vocabulary.json, read by the linter at run time.</span></div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="daynum" style="background:color-mix(in srgb,var(--ok) 12%,transparent)"><b>1</b><span style="color:var(--ok)">Shipped</span></div>
+          <div class="daybody">
+            <div class="daytitle">Canon Lint &#43; token layer</div>
+            <div class="daysub">The constraint before the thing it constrains. Cheap, and it shapes every decision after it.</div>
+            <div class="dayrow"><b>Work</b><span>Write the lint rules as executable checks. Then the token layer: colour roles, type scale, spacing, density modes, elevation, both themes &#8212; extending the mark's palette rather than inventing a second one.</span></div>
+            <div class="dayrow"><b>Ships</b><span><span class="mono">canon-lint.js</span> &#183; <span class="mono">canon-tokens.css</span> &#183; lint report on Fractal Pulse</span></div>
+            <div class="dayrow"><b>Gate</b><span class="gate">Held. Found ten errors in hand-vetted work, including an axis collapse. Fixed, now clean.</span></div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="daynum"><b>2</b><span>Tue</span></div>
+          <div class="daybody">
+            <div class="daytitle">Product Shell &#8212; structure</div>
+            <div class="daysub">02, first half. Navigation, hierarchy, chrome, and how a screen is allowed to be composed.</div>
+            <div class="dayrow"><b>Work</b><span>System hierarchy and navigation model. Page chrome and command surface. Panel taxonomy: what a panel is, what it may assert, how panels nest. Density rules and the responsive breakpoints.</span></div>
+            <div class="dayrow"><b>Ships</b><span>Shell artifact with three layouts at empty state, dark and light</span></div>
+            <div class="dayrow"><b>Gate</b><span class="gate">Empty states legible and non-apologetic before any data exists.</span></div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="daynum"><b>3</b><span>Wed</span></div>
+          <div class="daybody">
+            <div class="daytitle">Product Shell &#8212; the honest components</div>
+            <div class="daysub">02, second half. This is where the rule stops being a policy and becomes geometry.</div>
+            <div class="dayrow"><b>Work</b><span>Status chip carrying an epistemic state. Evidence reference. Authority state, visually separate from capability. Staleness. Hold and block banners. Table treatment. Graph treatment. Each built <span class="mono">UNKNOWN</span>-first.</span></div>
+            <div class="dayrow"><b>Ships</b><span>Component gallery, every state present, lint-clean</span></div>
+            <div class="dayrow"><b>Gate</b><span class="gate">No component can render a claim without its evidence slot filled or explicitly marked unverifiable.</span></div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="daynum"><b>4</b><span>Thu</span></div>
+          <div class="daybody">
+            <div class="daytitle">Command Center</div>
+            <div class="daysub">03. The first screen that makes someone understand why CTO OS exists.</div>
+            <div class="dayrow"><b>Work</b><span>Build the reference tenant fixture, then the eight questions as one board: technical state, authority, assurance, holds, decisions, runtime, changes, risk. Composed entirely from Day 3 components &#8212; no new primitives.</span></div>
+            <div class="dayrow"><b>Ships</b><span>Command Center screen &#183; <span class="mono">reference-tenant.json</span></span></div>
+            <div class="dayrow"><b>Gate</b><span class="gate">Board reads correctly at a glance <em>and</em> a third of it is honestly not-green.</span></div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="daynum"><b>5</b><span>Fri</span></div>
+          <div class="daybody">
+            <div class="daytitle">Change Pipeline &#43; freeze</div>
+            <div class="daysub">04, then the demo path end to end and the v0.1 freeze. Six <em>display stages</em>, not a formal state machine.</div>
+            <div class="dayrow"><b>Work</b><span>Morning: the six display stages plus HOLD and BLOCK routes. Every load-bearing stage resolves to the axis beneath it, and the UI preserves whether a hold is an authority hold, Attempt HELD/BLOCKED, missing evidence, runtime uncertainty or human disposition. Afternoon: demo run-through, lint gate across all artifacts, fix, freeze.</span></div>
+            <div class="dayrow"><b>Ships</b><span>Pipeline artifact &#183; linked demo path &#183; <span class="mono">CANON_V0.1</span> freeze note</span></div>
+            <div class="dayrow"><b>Gate</b><span class="gate">Every artifact passes Canon Lint. A failing artifact does not ship &#8212; it gets corrected or marked provisional.</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap sec">
+    <div class="rail">
+      <p class="eyebrow">Risk</p>
+      <h2>What could cost the week</h2>
+      <p class="note">Named now so the mitigation is designed in rather than improvised on Thursday.</p>
+    </div>
+    <div class="body">
+      <div class="two">
+        <div class="card">
+          <div class="cardhead">Docs arrive late &#8212; closed</div>
+          <p style="margin:0 0 8px">The shell needs only two things from the doctrine on Day 1: the eight epistemic values and the six pipeline display stages. Both are already stated in your brief.</p>
+          <p style="margin:0;font-size:13px;color:var(--ink-dim)">Mitigation: Days 1&#8211;3 proceed on that minimum. Only the Command Center's content fidelity is exposed, and that is Thursday.</p>
+        </div>
+        <div class="card">
+          <div class="cardhead">Phase C creep</div>
+          <p style="margin:0 0 8px">The Evidence Graph is the most interesting artifact in the canon and will be tempting to start mid-week.</p>
+          <p style="margin:0;font-size:13px;color:var(--ink-dim)">Mitigation: it encodes model claims, so it needs the docs read properly. Starting it Thursday produces a diagram we rebuild. It is week two, first thing.</p>
+        </div>
+        <div class="card">
+          <div class="cardhead">Demo pressure on Friday</div>
+          <p style="margin:0 0 8px">The predictable failure is someone asking for the board to look greener the night before.</p>
+          <p style="margin:0;font-size:13px;color:var(--ink-dim)">Mitigation: the lint gate is mechanical and runs last. It does not negotiate, which is the point of writing the rule as code.</p>
+        </div>
+        <div class="card">
+          <div class="cardhead">Shell scope</div>
+          <p style="margin:0 0 8px">A full design system is three weeks. Two days buys the subset the canon actually consumes.</p>
+          <p style="margin:0;font-size:13px;color:var(--ink-dim)">Mitigation: the shell is scoped by what artifacts 03&#8211;18 need, not by component-library completeness. Anything nothing consumes is not built.</p>
+        </div>
+      </div>
+      <div class="card accent">
+        <div class="cardhead">Input &#8212; received</div>
+        <p style="margin:0">Model extract v0.1 received and adopted. Next input, needed before Day 4: nothing blocking &#8212; the reference tenant will be composed from the extract&#8217;s axes alone. If <span class="mono">GF_R2_CORE_FORMAL_SPECIFICATION_V0.2</span> can be shared it would let the Command Center cite real record shapes rather than plausible ones, but the week does not depend on it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:0">
+  <div class="wrap sec">
+    <div class="rail">
+      <p class="eyebrow">Programme</p>
+      <h2>All eighteen</h2>
+      <p class="note">Status against the full canon, so the week is visible as a slice of the programme rather than a list of its own.</p>
+    </div>
+    <div class="body">
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>#</th><th>Artifact</th><th>Phase</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="c">01</td><td class="k">Fractal Pulse Motion System</td><td class="c">A &#183; Motion</td><td><span class="pill p-done">Built</span></td></tr>
+            <tr><td class="c">02</td><td class="k">Product Shell</td><td class="c">B &#183; Product</td><td><span class="pill p-week">Week one</span></td></tr>
+            <tr><td class="c">03</td><td class="k">Command Center</td><td class="c">B &#183; Product</td><td><span class="pill p-week">Week one</span></td></tr>
+            <tr><td class="c">04</td><td class="k">Change Control Pipeline</td><td class="c">B &#183; Product</td><td><span class="pill p-week">Week one</span></td></tr>
+            <tr><td class="c">&#8212;</td><td class="k">Canon Lint</td><td class="c">B &#183; Gate</td><td><span class="pill p-done">Built</span></td></tr>
+            <tr><td class="c">07</td><td class="k">Evidence Graph &#8212; signature visual</td><td class="c">C &#183; System</td><td><span class="pill p-week">Week two</span></td></tr>
+            <tr><td class="c">05</td><td class="k">Technical State Graph</td><td class="c">C &#183; System</td><td><span class="pill p-block">Bounded by do-not-invent</span></td></tr>
+            <tr><td class="c">06</td><td class="k">Authority Graph</td><td class="c">C &#183; System</td><td><span class="pill p-block">Bounded by do-not-invent</span></td></tr>
+            <tr><td class="c">08</td><td class="k">Governance Kernel State Machine</td><td class="c">C &#183; System</td><td><span class="pill p-block">Bounded by do-not-invent</span></td></tr>
+            <tr><td class="c">09</td><td class="k">Cathy / Marcus / Human Triad</td><td class="c">C &#183; System</td><td><span class="pill p-q">Queued</span></td></tr>
+            <tr><td class="c">10</td><td class="k">Decision Ledger</td><td class="c">C &#183; System</td><td><span class="pill p-q">Queued</span></td></tr>
+            <tr><td class="c">11</td><td class="k">Assumption Registry</td><td class="c">C &#183; System</td><td><span class="pill p-q">Queued</span></td></tr>
+            <tr><td class="c">12</td><td class="k">ImpactSet / Case 0</td><td class="c">C &#183; System</td><td><span class="pill p-block">Bounded by do-not-invent</span></td></tr>
+            <tr><td class="c">13</td><td class="k">Risk-Proportional Governance Scale</td><td class="c">C &#183; System</td><td><span class="pill p-q">Queued</span></td></tr>
+            <tr><td class="c">14</td><td class="k">Epistemic State Language</td><td class="c">C &#183; System</td><td><span class="pill p-week">Encoded in lint &#183; visual pending</span></td></tr>
+            <tr><td class="c">15</td><td class="k">Governed Agent Fabric</td><td class="c">C &#183; System</td><td><span class="pill p-block">Bounded by do-not-invent</span></td></tr>
+            <tr><td class="c">16</td><td class="k">Decision OS &#8594; CTO OS Architecture Map</td><td class="c">D &#183; Institutional</td><td><span class="pill p-q">Queued</span></td></tr>
+            <tr><td class="c">17</td><td class="k">Governance Report System</td><td class="c">D &#183; Institutional</td><td><span class="pill p-q">Queued</span></td></tr>
+            <tr><td class="c">18</td><td class="k">Website Hero &#43; Product Story</td><td class="c">D &#183; Market</td><td><span class="pill p-q">Queued</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mono" style="color:var(--ink-dim)">Rough shape after week one, assuming docs land: week two, Evidence Graph and the three graphs it depends on. Week three, the remaining Phase C diagram kit as one system rather than eleven separate drawings. Week four, Phase D. The Decision OS parent map is the archival one &#8212; it is worth doing last, when the implementation vocabulary underneath it has stopped moving.</p>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">CTO_OS_VISUAL_CANON_V0.1 &#183; week one plan &#183; every artifact subordinate to the canon rule: no visual may imply more authority, certainty, verification, safety or runtime state than the model establishes</div></footer>

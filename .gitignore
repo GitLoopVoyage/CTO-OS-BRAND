@@ -1,0 +1,7 @@
+node_modules/
+report*.json
+!05-freeze-records/*.json
+*.png
+!01-fractal-core-mark/CTOOSProductionBoard.png
+__pycache__/
+.DS_Store

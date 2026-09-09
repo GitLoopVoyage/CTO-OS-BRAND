@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Fractal Pulse — component smoke test</title>
+<style>body{background:#0B0D10;margin:0;padding:40px;display:flex;gap:40px;flex-wrap:wrap;align-items:center;font-family:monospace;color:#7C8794}
+.c{display:grid;justify-items:center;gap:12px;font-size:10px;letter-spacing:.12em}
+.lt{background:#F5F7F9;padding:20px;border-radius:2px;color:#5D6874}</style></head><body>
+<div class="c"><fractal-pulse state="idle" size="80"></fractal-pulse>IDLE</div>
+<div class="c"><fractal-pulse state="working" size="80"></fractal-pulse>WORKING</div>
+<div class="c"><fractal-pulse state="hold" hold-at="inner" size="80"></fractal-pulse>HOLD</div>
+<div class="c"><fractal-pulse state="complete" size="80"></fractal-pulse>COMPLETE</div>
+<div class="c"><fractal-pulse state="error" hold-at="middle" size="80"></fractal-pulse>ERROR</div>
+<div class="c"><fractal-pulse state="working" size="16"></fractal-pulse>16</div>
+<div class="c"><fractal-pulse state="working" size="24"></fractal-pulse>24</div>
+<div class="c lt"><fractal-pulse state="working" size="80" ink="#191C20"></fractal-pulse>LIGHT</div>
+<script src="fractal-pulse.js"></script></body></html>
