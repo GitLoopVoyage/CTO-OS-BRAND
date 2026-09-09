@@ -1,9 +1,12 @@
 /*!
- * CTO OS — Product Shell stylesheet  v0.1
- * Extracted verbatim from the frozen product-shell.html (1e54c7fa…).
+ * CTO OS — Product Shell stylesheet  v0.1  (DERIVED ARTIFACT — do not edit)
+ * Source: product-shell.html  sha256 1e54c7fa2616c5c6441660cbb7e7652505b4ef65b4552db56f034e141f62aa94
+ * Derivation: 04-product-shell/derive-shell-css.py (deterministic; run with --check to verify)
+ * Content below is the source's single <style> block, byte for byte.
  * Load AFTER canon-tokens.css. Shipped because compositions (Command Center, Day 4)
  * need to link the shell without embedding the gallery page.
  */
+
 :root{
   --c-ground:#0B0D10; --c-surface:#14181D; --c-surface-2:#1A1F26; --c-surface-3:#212831;
   --c-line:#232A33; --c-line-soft:#1B212A;
