@@ -1,8 +1,8 @@
 diff --git a/MANIFEST.sha256 b/MANIFEST.sha256
-index 1b506cc..35bed3a 100644
+index 1b506cc..c629a08 100644
 --- a/MANIFEST.sha256
 +++ b/MANIFEST.sha256
-@@ -25,8 +25,14 @@ e80d2af9cca66cb932c9b0f09bd7cbcde9a973711de4218be7442ac6204aef3c  02-fractal-pul
+@@ -25,8 +25,17 @@ e80d2af9cca66cb932c9b0f09bd7cbcde9a973711de4218be7442ac6204aef3c  02-fractal-pul
  ce172f94626c169824ea9a1209022ed936c58c0500aeab54391c1d41e5966a57  03-canon-lint/canon-lint.js
  e18e14c3628c17be1327ac1db30b10b48f097afa9bcccd8e3c0203f36eacb632  03-canon-lint/canon-vocabulary.json
  3d944a6352cbf0c80b6964f06a3b8271a56a8edd9cd23bf13a8d730a4dd01dab  04-product-shell/canon-tokens.css
@@ -12,8 +12,11 @@ index 1b506cc..35bed3a 100644
  b5ca507e2cd5172b3f0630bfc6592bc3a40d56c7d22dc1cfe5b4b5263bc7bf4e  05-freeze-records/CANON_FREEZE_PRODUCT_SHELL_DAY_2.md
  0020de63d035508154272d49185bba5f0072a53b842b0350183bd31cef7a42ef  05-freeze-records/CANON_LINT_REPORT_PRODUCT_SHELL_DAY_2.json
  d8a12d2ee66476cb4e549a24ae11ebe33be35ef4383164995cb803b852589eed  06-canon-program/week-one.html
-+a31a2cef8092ce91f3798f6c250e8ae911a4ea9ed394c713d2d6af5a45ae2451  08-change-pipeline/CANON_LINT_GATE_DAY_5_ALL_ARTIFACTS.json
-+ac6b1573a0dbf3d8a74d01c90259fbfd32eb3fb8401152111bf96afea96ad135  08-change-pipeline/CANON_LINT_REPORT_CHANGE_PIPELINE_DAY_5.json
-+9e8270c433d9691a5e5fda0089867abdd675272bd702c164cad25eaeeffe018c  08-change-pipeline/REVIEW_CHANGE_PIPELINE_DAY_5.md
-+f927cce6b41fe5e4cba63ac95c0324f0fcaef58ebd573a37bcf817eee3e0c58e  08-change-pipeline/change-pipeline.html
++f5aa0adc72ef6625ee1e2cf2ad60a7281518a4b482482e4833d486a4f3736f85  08-change-pipeline/CANON_LINT_GATE_DAY_5_ALL_CANON_SURFACES.json
++39475fda0a921d58f79a4ebfc95c2db77dad499d9509e92cad1826e17d171c7a  08-change-pipeline/CANON_LINT_REPORT_CHANGE_PIPELINE_DAY_5.json
++8cd0ec586c379c33e9f01da933b06cd4157bc3378a79003badb731569023718c  08-change-pipeline/CHG_0912_CONSISTENCY_PROOF_DAY_5.json
++9838ea01fcf5c5db1520014f59fcebe4c360e2a32b64b915af6336a02afd71de  08-change-pipeline/CORRECTION_1_CHANGE_PIPELINE_DAY_5.md
++4df2cf934ddc13b8fd7b3850081e72f9ee87870e04e558a5d1c62a242ac5282d  08-change-pipeline/REVIEW_CHANGE_PIPELINE_DAY_5.md
++6a23b08a51b072ddcbb129720a892538989a148c848ffcd0e3989d14cdb3aa6e  08-change-pipeline/change-pipeline.html
++b49e4de5aff78a0747a2437e121d07371520a6d18901078f27dbe30ab7e16a7e  08-change-pipeline/chg-0912-consistency.py
  3830623a2c0af168e0b4528ce82f54e58360f1ed256e12f14b5979abf358b163  README.md

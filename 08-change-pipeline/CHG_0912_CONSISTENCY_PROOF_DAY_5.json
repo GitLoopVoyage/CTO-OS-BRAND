@@ -1,0 +1,316 @@
+{
+ "tool": "chg-0912-consistency",
+ "controlling": {
+  "file": "/tmp/claude-0/-home-claude/232bc9fd-63bb-5385-8b34-b53ee250817c/scratchpad/cc.html",
+  "sha256": "fd7958c3b4e7714f1e5c4dc73e0647942e18ecfb8c40d64a8f562bfd3981cfb5",
+  "bytes": 23633
+ },
+ "candidate": {
+  "file": "08-change-pipeline/change-pipeline.html",
+  "sha256": "6a23b08a51b072ddcbb129720a892538989a148c848ffcd0e3989d14cdb3aa6e",
+  "bytes": 36713
+ },
+ "facts": [
+  {
+   "fact": "stage REQUEST (chg-0912)",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-01T14:02:00Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-01T14:02:00Z"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "stage AUTHORIZED (chg-0912)",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-02T08:31:00Z",
+      "data-authority-ref": "auth-4471"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-02T08:31:00Z",
+      "data-authority-ref": "auth-4471"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "stage IMPLEMENTED (chg-0912)",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T07:55:00Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T07:55:00Z"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "stage ASSURED not claimed",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-claimed": "false"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-claimed": "false"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "stage RUNTIME not claimed",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-claimed": "false"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-claimed": "false"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "stage CLOSED not claimed",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-claimed": "false"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-claimed": "false"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "att-1187 attempt",
+   "command_center": {
+    "found": 2,
+    "values": [
+     {
+      "data-asof": "2026-09-02T07:58:00Z",
+      "data-terminal": "true"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 2,
+    "values": [
+     {
+      "data-asof": "2026-09-02T07:58:00Z",
+      "data-terminal": "true"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "att-1187 boundary",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {}
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {}
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "att-1190 attempt",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "dec-0295 disposition",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-02T08:31:00Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-02T08:31:00Z"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "dec-0301 disposition",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "evidence effects 4-5 presence",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "evidence effects 4-5 review",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "AER decision on chg-0912",
+   "command_center": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "agree": true
+  },
+  {
+   "fact": "auth-4471 authority",
+   "command_center": {
+    "found": 2,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "change_pipeline": {
+    "found": 1,
+    "values": [
+     {
+      "data-asof": "2026-09-03T09:14:22Z"
+     }
+    ]
+   },
+   "agree": true
+  }
+ ],
+ "all_agree": true
+}

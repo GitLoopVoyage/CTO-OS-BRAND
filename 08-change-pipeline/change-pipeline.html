@@ -35,7 +35,6 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
 .route.blk{border-left-color:var(--c-signal)} .route.blk .rk,.route.blk .rv{color:var(--c-signal)}
 .route.blk .rv .ax{color:var(--c-signal);opacity:.7}
 .route.past{opacity:.72}
-.stage span[data-claimed="false"][data-withdrawn="true"]{text-decoration:line-through;text-decoration-color:var(--c-ink-45);color:var(--c-ink-45)}
 
 /* cause chips beneath a route */
 .causes{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
@@ -128,7 +127,7 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
           <div class="track">
             <span class="stage">
               <span data-reached="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-09-01T14:02:00Z" data-fixture-ref="demo">REQUEST</span>
-              <span data-reached="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-authority-ref="auth-4471" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">AUTHORIZED</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-authority-ref="auth-4471" data-asof="2026-09-02T08:31:00Z" data-fixture-ref="demo">AUTHORIZED</span>
             </span>
             <div class="route blk past">
               <span class="rk">Block route &#183; past</span>
@@ -136,7 +135,7 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
               <span class="rc">att-1187 &#183; cap-117 &#183; consumed, not restored</span>
             </div>
             <span class="stage">
-              <span data-reached="true" data-current="true" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo">IMPLEMENTED</span>
+              <span data-reached="true" data-current="true" data-axis="pipeline-stage" data-status="IMPLEMENTED" data-asof="2026-09-03T07:55:00Z" data-fixture-ref="demo">IMPLEMENTED</span>
             </span>
             <div class="route attn">
               <span class="rk">Hold route &#183; current</span>
@@ -175,7 +174,7 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
           <div class="track">
             <span class="stage">
               <span data-reached="true" data-axis="pipeline-stage" data-status="REQUEST" data-asof="2026-09-02T10:20:00Z" data-fixture-ref="demo">REQUEST</span>
-              <span data-reached="true" data-claimed="false" data-withdrawn="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-fixture-ref="demo">AUTHORIZED</span>
+              <span data-reached="true" data-axis="pipeline-stage" data-status="AUTHORIZED" data-authority-ref="auth-4390" data-asof="2026-09-02T11:05:00Z" data-fixture-ref="demo">AUTHORIZED</span>
             </span>
             <div class="route attn">
               <span class="rk">Hold route &#183; current</span>
@@ -195,8 +194,8 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
                 <span><span class="k">authority</span><span class="val auth" data-axis="authority" data-status="SUSPENDED" data-asof="2026-09-03T08:40:00Z" data-fixture-ref="demo">SUSPENDED</span><span class="asof">auth-4390 &#183; suspended on adverse <span class="ev adverse" data-evidence-id="ev-8804" data-fixture-ref="demo">ev-8804</span> by dec-0298</span></span>
                 <span><span class="k">decision</span><span class="val disp" data-axis="disposition" data-status="ACCEPT" data-asof="2026-09-03T08:40:00Z" data-fixture-ref="demo">ACCEPT</span><span class="asof">dec-0298 accepted the suspension &#183; that is the human act; the hold itself is the authority state</span></span>
               </span></div>
-            <div class="specrow"><span class="lbl">Stage label</span>
-              <span style="font-size:12px;color:var(--c-ink-60)">AUTHORIZED was reached on 09&#8209;02 and is now struck: the label resolved to auth-4390, and auth-4390 is no longer ACTIVE. The record is not deleted and the history is not rewritten &#8212; the label is withdrawn because its basis changed. No attempt was begun under it.</span></div>
+            <div class="specrow"><span class="lbl">Stage history</span>
+              <span style="font-size:12px;color:var(--c-ink-60)">AUTHORIZED was reached on 2026&#8209;09&#8209;02 11:05Z under auth-4390 and stays on the strip as a reached stage bound to that record and that time. What is current is the interruption: auth-4390 is SUSPENDED as of 09&#8209;03 08:40Z. History is not rewritten to fit the present state. No attempt was begun under auth-4390.</span></div>
           </div>
         </div>
 
@@ -232,7 +231,7 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
                 <span><span class="k">observation</span><span class="val" data-axis="epistemic" data-status="UNVERIFIABLE" data-asof="2026-09-03T09:14:22Z" data-fixture-ref="demo"><span class="v">UNVERIFIABLE</span></span><span class="asof">worker-reindex exposes no runtime observation channel; no ref</span></span>
               </span></div>
             <div class="specrow"><span class="lbl">Colour</span>
-              <span style="font-size:12px;color:var(--c-ink-60)">This route is drawn in ink, not amber. Nothing here is a failure or a hold decision: the pipeline cannot advance because the truth is not establishable, and the canon does not style uncertainty as alarm (lint R8, R11). It stays a hold route until an observation exists or the change is withdrawn by a human act.</span></div>
+              <span style="font-size:12px;color:var(--c-ink-60)">This route is drawn in ink, not amber. Nothing here is a failure or a hold decision: the pipeline cannot advance because the truth is not establishable from the evidence held, and the canon does not style uncertainty as alarm (lint R8, R11). What would resolve the route is not stated, because present evidence does not establish it.</span></div>
           </div>
         </div>
 

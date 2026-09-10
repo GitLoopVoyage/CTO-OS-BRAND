@@ -1,5 +1,7 @@
 # Change Control Pipeline — Day 5 candidate for review
 
+> **Superseded in part by `CORRECTION_1_CHANGE_PIPELINE_DAY_5.md` (2026-09-10).** This file records the prior candidate `f927cce6…`. The "Withdrawn label, kept record" paragraph, the chg-0912 timestamps it implies, and the §4 gate name ("every artifact") no longer describe the current candidate; the gate is now the ALL-CANON-SURFACE GATE and `week-one.html` is reported outside product-surface scope.
+
 **Program:** CTO_OS_VISUAL_CANON_V0.1 · Phase B · Artifact 04 · Day 5
 **Base:** `main` @ `b16d59f3` · **Branch:** `canon/day-5-change-pipeline`
 **Standing:** candidate. NO CONSTITUTIONAL EFFECT · NO IMPLEMENTATION AUTHORITY · NO DEPLOYMENT · PRODUCTION ZERO. Nothing here is frozen; the v0.1 freeze the Day 5 plan names is the reviewer's act, not this record's.
