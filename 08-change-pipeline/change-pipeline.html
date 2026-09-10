@@ -64,7 +64,7 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
     <p style="margin:0;max-width:72ch;color:var(--c-ink-60);font-size:14.5px;line-height:1.55;text-wrap:pretty">Six display stages, not a state machine (extract &#167;9). A stage is a product label; where it is load-bearing it resolves to the axis beneath it. A HOLD or BLOCK route interrupts the strip and carries that underlying axis with it, so the screen never says a change is &#8220;on hold&#8221; without saying whether the hold is authority, attempt, evidence, runtime uncertainty or a human decision. Every component is the frozen Day 2 shell; the route interrupt is the one new structure, and it is not a stage.</p>
   </div>
 
-  <div class="app" data-density="comfortable" data-fixture-root="synthetic" data-fixture="synthetic" data-screen-label="Change Control Pipeline">
+  <div class="app" id="app" data-density="comfortable" data-fixture-root="synthetic" data-fixture="synthetic" data-screen-label="Change Control Pipeline">
     <div class="rail">
       <div class="brand"><span class="wm">CTO <i data-role="wordmark-os">OS</i></span></div>
       <div class="navsec">
@@ -101,8 +101,8 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
       <div class="topbar">
         <div class="cmd" style="gap:10px"><span>Search changes, decisions, evidence&#8230;</span><kbd>&#8984;K</kbd></div>
         <div class="tb-actions">
-          <button class="btn" aria-pressed="false" data-role="interactive-primary">Compact</button>
-          <button class="btn" aria-pressed="false" data-role="interactive-primary">Light</button>
+          <button class="btn" id="densityBtn" aria-pressed="false" data-role="interactive-primary">Compact</button>
+          <button class="btn" id="surfaceBtn" aria-pressed="false" data-role="interactive-primary">Light</button>
         </div>
       </div>
 
@@ -374,5 +374,27 @@ html,body{margin:0;background:var(--c-ground);color:var(--c-ink-80);font-family:
     <b style="color:var(--c-ink-100);font-weight:600">Reference tenant is synthetic.</b> Meridian Logistics, its services, changes, authorities, attempts, evidence records and decisions are invented. The screen declares <span class="mono">data-fixture-root="synthetic"</span>; every fixture node is inside it. The seven changes shown were chosen to exercise each route class once and the demo path end to end; that is a coverage choice for a canon artifact, not a claim about how a real register distributes, and no distribution rule exists (extract &#167;11.10). chg-0912 is the same record as on the Command Center (Day 4, under review) and agrees with it in every value. Composition sources: rail Art. 21.2, stages extract &#167;9, as-of rule &#167;10, vocabularies Model Extract v0.1. Components: frozen Day 2 <span class="mono">product-shell.html</span> (1e54c7fa&#8230;) and <span class="mono">canon-tokens.css</span> (3d944a63&#8230;), via the derived <span class="mono">product-shell.css</span>.
   </div>
 </div>
+<script>
+/* Density and surface toggles - the frozen Day 2 shell's own behaviour (product-shell.html
+   1e54c7fa..., script block), reproduced verbatim minus the gallery's tab handling.
+   State lives on #app as data-density / data-surface; the tokens do the rest. */
+(function(){
+  "use strict";
+  var app = document.getElementById("app");
+  var d = document.getElementById("densityBtn"), s = document.getElementById("surfaceBtn");
+  d.addEventListener("click", function(){
+    var on = app.getAttribute("data-density") === "compact";
+    app.setAttribute("data-density", on ? "comfortable" : "compact");
+    d.setAttribute("aria-pressed", String(!on));
+    d.textContent = on ? "Compact" : "Comfortable";
+  });
+  s.addEventListener("click", function(){
+    var on = app.getAttribute("data-surface") === "light";
+    if (on) app.removeAttribute("data-surface"); else app.setAttribute("data-surface","light");
+    s.setAttribute("aria-pressed", String(!on));
+    s.textContent = on ? "Light" : "Dark";
+  });
+})();
+</script>
 </body>
 </html>

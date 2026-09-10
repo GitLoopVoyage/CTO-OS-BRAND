@@ -87,3 +87,24 @@ git push origin canon/day-5-change-pipeline
 ```
 
 The bundle carries one commit on top of `1b15d81`; if the branch already exists locally from the Day 5 bundle, the fetch fast-forwards it.
+
+---
+
+## Addendum A — 2026-09-10 · founder-reported defect: "Light and Compact are not working"
+
+**Defect.** The Compact and Light buttons in the top bar were the frozen shell's buttons without the frozen shell's script. The Command Center (Day 4) copied them the same way. I shipped controls that did nothing, on two screens, and did not catch it because the lint measures state claims, not interaction, and my render checks were static. That is my error.
+
+**Fix — this artifact only.** `#app` id added to the `.app` root; `id="densityBtn"` / `id="surfaceBtn"` on the two buttons; the shell's own toggle script (`product-shell.html` `1e54c7fa…`, script block) reproduced verbatim minus the gallery's tab handling. State lives on `#app` as `data-density="compact"` and `data-surface="light"`, exactly as in the shell; the page-local CSS uses tokens only, so both modes render from the frozen token set. Verified headless by clicking both buttons: `data-surface=light`, `data-density=compact`, button labels swap to Dark / Comfortable, panel background resolves to `#FFFFFF`. A static light+compact variant of the page was linted (scratch, not committed): **0 ERROR · 0 WARN · 1 INFO** — the same result as the dark/comfortable default, so neither mode leaks an attention hue or an error colour under the frozen ruleset.
+
+**Superseding identities** (the §1 table above describes `6a23b08a…`, which this addendum replaces):
+
+| | sha256 | bytes |
+|---|---|---|
+| **`change-pipeline.html` — candidate** | `dadc1dc0a305b331ead4cf9f8e5fb3715e633e229e33fdfb690492a15f2077fa` | 37 778 |
+| `CANON_LINT_REPORT_CHANGE_PIPELINE_DAY_5.json` — bound to `dadc1dc0…` | `0055325fdf8de23117ce855b41a6f02bd26d551534e261171f836d4ae2ae7e31` | — |
+| `CHG_0912_CONSISTENCY_PROOF_DAY_5.json` — 15/15 agree, re-run on `dadc1dc0…` | `2521918d610d401c501d48d5250743f63624fcb1511fb5ee6fda2d543813f3e0` | — |
+| `CANON_LINT_GATE_DAY_5_ALL_CANON_SURFACES.json` — pipeline entry refreshed | `13e842890d4bd4f1b33fc719d0715f64ea3a89c20e0fea630b53c76a5d121c36` | — |
+
+The diff from `6a23b08a…` is three hunks: the `id="app"` attribute, the two button ids, and the script block. No fixture value, vocabulary, structure or colour changed; the consistency proof and the lint result are unchanged in substance and re-bound to the new bytes.
+
+**Not fixed — needs authorisation.** `07-command-center/command-center.html` (`fd7958c3…`, Day 4 branch, under review) has the identical defect: same two buttons, no script. Its bytes are bound to the Day 4 CORRECTION_1 record and I have not touched them. The fix is the same three hunks; it changes the candidate hash and needs a `DAY_4_CORRECTION_2` authorisation, or inclusion in whatever ruling closes Day 4.

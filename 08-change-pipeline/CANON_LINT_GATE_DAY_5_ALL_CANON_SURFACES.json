@@ -2,7 +2,7 @@
  "tool": "canon-lint",
  "gate": "ALL-CANON-SURFACE GATE",
  "program": "CTO_OS_VISUAL_CANON_V0.1 Day 5 (CORRECTION_1)",
- "tree": "detached scratch checkout: main@b16d59f3 + canon/day-4-command-center@51bfc0c + Day 5 CORRECTION_1 candidate bytes (discarded after the run; never a candidate, never a branch)",
+ "tree": "detached scratch checkout: main@b16d59f3 + canon/day-4-command-center@51bfc0c + Day 5 CORRECTION_1 candidate bytes (discarded after the run; never a candidate, never a branch) ; change-pipeline.html entry refreshed after CORRECTION_1 addendum (toggle wiring) from its own bound report - other surfaces' bytes unchanged",
  "scope": "Canon surfaces are artifacts that make governed state claims: 01 Fractal Pulse, 02 Product Shell, 03 Command Center, 04 Change Control Pipeline, and the Fractal Pulse demo page. Only these are gated.",
  "ruleset": {
   "canon-lint.js": {
@@ -115,8 +115,8 @@
   },
   {
    "file": "change-pipeline.html",
-   "sha256": "6a23b08a51b072ddcbb129720a892538989a148c848ffcd0e3989d14cdb3aa6e",
-   "bytes": 36713,
+   "sha256": "dadc1dc0a305b331ead4cf9f8e5fb3715e633e229e33fdfb690492a15f2077fa",
+   "bytes": 37778,
    "errors": 0,
    "warns": 0,
    "findings": [

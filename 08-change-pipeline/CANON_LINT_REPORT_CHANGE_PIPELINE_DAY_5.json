@@ -1,6 +1,6 @@
 {
  "tool": "canon-lint",
- "generated": "2026-09-10T08:45:59.215Z",
+ "generated": "2026-09-10T08:55:09.559Z",
  "ruleset": {
   "canon-lint.js": {
    "sha256": "ce172f94626c169824ea9a1209022ed936c58c0500aeab54391c1d41e5966a57",
@@ -15,8 +15,8 @@
  "files": [
   {
    "file": "change-pipeline.html",
-   "sha256": "6a23b08a51b072ddcbb129720a892538989a148c848ffcd0e3989d14cdb3aa6e",
-   "bytes": 36713,
+   "sha256": "dadc1dc0a305b331ead4cf9f8e5fb3715e633e229e33fdfb690492a15f2077fa",
+   "bytes": 37778,
    "errors": 0,
    "warns": 0,
    "findings": [
